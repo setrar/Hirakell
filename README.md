@@ -1,4 +1,4 @@
 # Hirakell
 
 
-[Proper Insatallatio](docs#a-proper-install)
+[Proper Insatallation](docs#a-proper-install)
