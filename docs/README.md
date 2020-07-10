@@ -57,4 +57,6 @@ $ cabal v1-install Euterpea
 
 ## :ab: MIDI Player
 
+https://github.com/notahat.com/simplesynth
+
 <img src="../images/SimpleSynth.png" width="617" height="573"> </img>
