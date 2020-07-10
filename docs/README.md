@@ -34,3 +34,23 @@ $ ghcup install 8.6.3
 ```
 $ ghcup set 8.6.3
 ```
+
+## :b: Euterpea Module Library
+
+* Update `cabal`'s libraries
+
+```
+$ cabal update
+```
+
+* Install the `Euterpea` module
+
+```
+$ cabal install Euterpea
+```
+
+* If using `cabal` 3.x version
+
+```
+$ cabal v1-install Euterpea
+```
