@@ -1,4 +1,4 @@
 # Hirakell
 
 
-[Proper Insatallation](docs#a-proper-install)
+- [x] [Haskell Installation](docs/README.md#a-ghcup)
