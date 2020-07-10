@@ -1,6 +1,6 @@
 # Hirakell
 
-I am reading the [Haskell School of Music])https://github.com/Euterpea/HSoM) book
+I am reading the [Haskell School of Music](https://github.com/Euterpea/HSoM) book
 
 ## :o: Installation
 
