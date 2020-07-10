@@ -7,3 +7,5 @@ I am reading the [The Haskell School of Music: From Signals to Symphonies](https
 - [x] [Haskell Installation](docs/README.md#a-ghcup)
 
 - [x] [Euterpea Installation](docs/README.md#b-euterpea-module-library)
+
+- [x] [a MIDI Player](docs/README.md#ab-midi-player)
