@@ -1,9 +1,9 @@
-# Haskell
+# Haskell Installation
 
 
-## :a: Proper Install
+## :a: [`ghcup`](https://www.haskell.org/ghcup/)
 
-## :one: Install Haskell using [`ghcup`](https://www.haskell.org/ghcup/)
+## :one: Install Haskell
 
 ```
 $ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
