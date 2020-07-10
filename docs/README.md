@@ -57,4 +57,4 @@ $ cabal v1-install Euterpea
 
 ## :ab: MIDI Player
 
-<img src="../images/SimpleSynth.png" width="" height=""> </img>
+<img src="../images/SimpleSynth.png" width="617" height="573"> </img>
