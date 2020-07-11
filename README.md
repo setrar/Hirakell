@@ -9,3 +9,10 @@ I am reading the [The Haskell School of Music: From Signals to Symphonies](https
 - [x] [Euterpea Installation](docs/README.md#b-euterpea-module-library)
 
 - [x] [a MIDI Player](docs/README.md#ab-midi-player)
+
+
+
+# References
+
+
+[Building a Music Learning Game with Elm, Web MIDI, and SVG Animation" by Liz Krane](https://www.youtube.com/watch?v=XsV3EK2cFJU)
