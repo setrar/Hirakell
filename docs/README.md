@@ -55,7 +55,27 @@ $ cabal install Euterpea
 $ cabal v1-install Euterpea
 ```
 
-## :ab: MIDI Player
+## :ab: HSoM Module Library (Optional)
+
+* Update `cabal`'s libraries
+
+```
+$ cabal update
+```
+
+* Install the `HSoM` module (Haskell School of Music)
+
+```
+$ cabal install HSoM
+```
+
+* If using `cabal` 3.x version
+
+```
+$ cabal v1-install HSoM
+```
+
+## :o: MIDI Player
 
 As stated by the `Euterpea` website, I can use [`SimpleSynth`](http://notahat.com/simplesynth) on my Mac.
 
