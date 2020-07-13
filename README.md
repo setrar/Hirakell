@@ -8,7 +8,9 @@ I am reading the [The Haskell School of Music: From Signals to Symphonies](https
 
 - [x] [Euterpea Installation](docs/README.md#b-euterpea-module-library)
 
-- [x] [a MIDI Player](docs/README.md#ab-midi-player)
+- [x] [HSoM](docs/README.md#ab-hsom-module-library-optional)
+
+- [x] [a MIDI Player](docs/README.md#o-midi-player)
 
 
 
