@@ -26,13 +26,13 @@ $ ghcup list
 * Install a specific version (ghc 8.6.3 is recommanded to use Euterpea )
 
 ```
-$ ghcup install 8.6.3
+$ ghcup install ghc 8.6.3
 ```
 
 * Set a specific version
 
 ```
-$ ghcup set 8.6.3
+$ ghcup set ghc 8.6.3
 ```
 
 ## :b: Euterpea Module Library
