@@ -23,7 +23,7 @@ $ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 $ ghcup list
 ```
 
-* Install a specific version (ghc 8.6.3 is recommanded to use Euterpea )
+* Install a specific version (ghc 8.6.3 is recommended to use `Euterpea` )
 
 ```
 $ ghcup install ghc 8.6.3
