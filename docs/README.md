@@ -70,6 +70,67 @@ On Darwin M1 you might also need a working llvm installed (e.g. via brew) and ha
 Press ENTER to proceed or ctrl-c to abort.
 Installation may take a while.
 
+
+[ Info  ] downloading: https://downloads.haskell.org/~ghc/9.4.8/ghc-9.4.8-aarch64-apple-darwin.tar.xz as file /Users/valiha/.ghcup/cache/ghc-9.4.8-aarch64-apple-darwin.tar.xz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  187M  100  187M    0     0  56.6M      0  0:00:03  0:00:03 --:--:-- 56.6M
+[ Info  ] verifying digest of: ghc-9.4.8-aarch64-apple-darwin.tar.xz
+[ Info  ] Unpacking: ghc-9.4.8-aarch64-apple-darwin.tar.xz to /Users/valiha/.ghcup/tmp/ghcup-b1571e2414900299
+[ Info  ] Installing GHC (this may take a while)
+[ Info  ] Merging file tree from "/Users/valiha/.ghcup/tmp/ghcup-02618577ffd80c67/Users/valiha/.ghcup/ghc/9.4.8" to "/Users/valiha/.ghcup/ghc/9.4.8"
+[ Info  ] GHC installation successful
+[ Info  ] GHC 9.4.8 successfully set as default version
+[ Info  ] downloading: https://downloads.haskell.org/ghcup/unofficial-bindists/cabal/3.10.3.0/cabal-install-3.10.3.0-aarch64-apple-darwin.tar.xz as file /Users/valiha/.ghcup/cache/cabal-install-3.10.3.0-aarch64-apple-darwin.tar.xz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 11.3M  100 11.3M    0     0  32.8M      0 --:--:-- --:--:-- --:--:-- 32.8M
+[ Info  ] verifying digest of: cabal-install-3.10.3.0-aarch64-apple-darwin.tar.xz
+[ Info  ] Unpacking: cabal-install-3.10.3.0-aarch64-apple-darwin.tar.xz to /Users/valiha/.ghcup/tmp/ghcup-87a65bdcc1e179e1
+[ Info  ] Installing cabal
+[ Info  ] Cabal installation successful
+Config file path source is default config file.
+Config file not found: /Users/valiha/.cabal/config
+Writing default configuration to /Users/valiha/.cabal/config
+Downloading the latest package list from hackage.haskell.org
+Package list of hackage.haskell.org has been updated.
+The index-state is set to 2024-04-20T10:21:37Z.
+[ Info  ] downloading: https://downloads.haskell.org/~ghcup/unofficial-bindists/stack/2.15.5/stack-2.15.5-osx-aarch64.tar.gz as file /Users/valiha/.ghcup/cache/stack-2.15.5-osx-aarch64.tar.gz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 20.6M  100 20.6M    0     0  43.7M      0 --:--:-- --:--:-- --:--:-- 43.7M
+[ Info  ] verifying digest of: stack-2.15.5-osx-aarch64.tar.gz
+[ Info  ] Unpacking: stack-2.15.5-osx-aarch64.tar.gz to /Users/valiha/.ghcup/tmp/ghcup-8aa07eae31629bcc
+[ Info  ] Installing stack
+[ Info  ] Stack installation successful
+[ Info  ] Stack manages GHC versions internally by default. To improve integration, please visit:
+[ ...   ]   https://www.haskell.org/ghcup/guide/#stack-integration
+[ ...   ] 
+[ ...   ] Also check out:
+[ ...   ]   https://docs.haskellstack.org/en/stable/yaml_configuration
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   764  100   764    0     0   1711      0 --:--:-- --:--:-- --:--:--  1713
+
+===============================================================================
+
+OK! /Users/valiha/.zshrc has been modified. Restart your terminal for the changes to take effect,
+or type ". /Users/valiha/.ghcup/env" to apply them in your current terminal session.
+
+===============================================================================
+
+All done!
+
+To start a simple repl, run:
+  ghci
+
+To start a new haskell project in the current directory, run:
+  cabal init --interactive
+
+To install other GHC versions and tools, run:
+  ghcup tui
+
+If you are new to Haskell, check out https://www.haskell.org/ghcup/steps/
 ```
 
 ### :two: set Env Variable (~/.bashrc or ~/.zshrc)
