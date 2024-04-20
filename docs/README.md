@@ -144,19 +144,19 @@ If you are new to Haskell, check out https://www.haskell.org/ghcup/steps/
 * List all installed binaries
 
 ```
-$ ghcup list
+ghcup list
 ```
 
 * Install a specific version (ghc 8.6.3 is recommended to use `Euterpea` )
 
 ```
-$ ghcup install ghc 8.6.3
+ghcup install ghc 8.6.3
 ```
 
 * Set a specific version
 
 ```
-$ ghcup set ghc 8.6.3
+ghcup set ghc 8.6.3
 ```
 
 ## :b: Euterpea Module Library
@@ -164,19 +164,19 @@ $ ghcup set ghc 8.6.3
 * Update `cabal`'s libraries
 
 ```
-$ cabal update
+cabal update
 ```
 
 * Install the `Euterpea` module
 
 ```
-$ cabal install Euterpea
+cabal install Euterpea
 ```
 
 * If using `cabal` 3.x version
 
 ```
-$ cabal v1-install Euterpea
+cabal v1-install Euterpea
 ```
 
 ## :ab: HSoM Module Library (Optional)
@@ -184,19 +184,19 @@ $ cabal v1-install Euterpea
 * Update `cabal`'s libraries
 
 ```
-$ cabal update
+cabal update
 ```
 
 * Install the `HSoM` module (Haskell School of Music)
 
 ```
-$ cabal install HSoM
+cabal install HSoM
 ```
 
 * If using `cabal` 3.x version
 
 ```
-$ cabal v1-install HSoM
+cabal v1-install HSoM
 ```
 
 ## :o: MIDI Player
