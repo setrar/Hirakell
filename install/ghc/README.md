@@ -1,14 +1,13 @@
 # ghc on Mac Silicon
 
-Fantastic! Hearing that synth fire up on an Apple Silicon Mac after battling those legacy constraints is incredibly satisfying.
-
-Here is a quick recap of how we bypassed the C-compiler errors and successfully got **Euterpea2** running natively on your ARM Mac:
-
----
 
 ## 🛠️ The Euterpea2 Apple Silicon Fix Recap
 
 The installation of older computer music libraries fails on modern Macs because core dependencies like `PortMidi-0.2.0.0` hardcode Intel-specific CPU instructions (`-msse2`) and use older CoreMIDI data configurations.
+
+```bash
+git clone https://github.com/Euterpea/Euterpea2.git && cd Euterpea2
+```
 
 ### 1. Bypass Hardcoded Intel Instructions
 
