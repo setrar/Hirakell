@@ -8,7 +8,8 @@
 ```
 curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
 ```
-> Returns
+<details><summary>🪵 Log</summary>
+ 
 ```powershell
 
 Welcome to Haskell!
@@ -132,6 +133,8 @@ To install other GHC versions and tools, run:
 
 If you are new to Haskell, check out https://www.haskell.org/ghcup/steps/
 ```
+
+</details>
 
 ### :two: set Env Variable (~/.bashrc or ~/.zshrc)
 
