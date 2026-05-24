@@ -149,17 +149,155 @@ If you are new to Haskell, check out https://www.haskell.org/ghcup/steps/
 ```
 ghcup list
 ```
+<details><summary>🪵 Log</summary>
 
-* Install a specific version (ghc 8.6.3 is recommended to use `Euterpea` )
+```lua
+[ Info  ] downloading: https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-0.1.0.yaml as file /Users/valiha/.ghcup/cache/ghcup-0.1.0.yaml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+   Tool  Version     Tags                      Notes     
+✗  cabal 2.4.1.0                               no-bindist
+✗  cabal 3.0.0.0                               no-bindist
+✗  cabal 3.2.0.0                               no-bindist
+✗  cabal 3.4.0.0                                         
+✗  cabal 3.4.1.0                                         
+✗  cabal 3.6.0.0                                         
+✗  cabal 3.6.2.0                                         
+✗  cabal 3.6.2.0-p1                                      
+✗  cabal 3.8.1.0                                         
+✗  cabal 3.10.1.0                                        
+✗  cabal 3.10.2.0                                        
+✗  cabal 3.10.2.1                                        
+✔✔ cabal 3.10.3.0                                        
+✗  cabal 3.12.1.0                                        
+✗  cabal 3.14.1.0                                        
+✗  cabal 3.14.1.1                                        
+✗  cabal 3.14.1.1-p1                                     
+✗  cabal 3.14.2.0    recommended                         
+✗  cabal 3.16.0.0                                        
+✗  cabal 3.16.1.0    latest                              
+✗  ghc   7.10.3      base-4.8.2.0              no-bindist
+✗  ghc   8.0.2       base-4.9.1.0              no-bindist
+✗  ghc   8.2.2       base-4.10.1.0             no-bindist
+✗  ghc   8.4.1       base-4.11.0.0             no-bindist
+✗  ghc   8.4.2       base-4.11.1.0             no-bindist
+✗  ghc   8.4.3       base-4.11.1.0             no-bindist
+✗  ghc   8.4.4       base-4.11.1.0             no-bindist
+✗  ghc   8.6.1       base-4.12.0.0             no-bindist
+✗  ghc   8.6.2       base-4.12.0.0             no-bindist
+✗  ghc   8.6.3       base-4.12.0.0             no-bindist
+✗  ghc   8.6.4       base-4.12.0.0             no-bindist
+✗  ghc   8.6.5       base-4.12.0.0             no-bindist
+✗  ghc   8.8.1       base-4.13.0.0             no-bindist
+✗  ghc   8.8.2       base-4.13.0.0             no-bindist
+✗  ghc   8.8.3       base-4.13.0.0             no-bindist
+✗  ghc   8.8.4       base-4.13.0.0             no-bindist
+✗  ghc   8.10.1      base-4.14.0.0             no-bindist
+✗  ghc   8.10.2      base-4.14.1.0             no-bindist
+✗  ghc   8.10.3      base-4.14.1.0             no-bindist
+✗  ghc   8.10.4      base-4.14.1.0             no-bindist
+✗  ghc   8.10.5      base-4.14.2.0                       
+✗  ghc   8.10.6      base-4.14.3.0                       
+✗  ghc   8.10.7      base-4.14.3.0                       
+✗  ghc   9.0.1       base-4.15.0.0             no-bindist
+✗  ghc   9.0.2       base-4.15.1.0                       
+✗  ghc   9.2.1       base-4.16.0.0                       
+✗  ghc   9.2.2       base-4.16.1.0                       
+✗  ghc   9.2.3       base-4.16.2.0                       
+✗  ghc   9.2.4       base-4.16.3.0                       
+✗  ghc   9.2.5       base-4.16.4.0                       
+✗  ghc   9.2.6       base-4.16.4.0                       
+✗  ghc   9.2.7       base-4.16.4.0                       
+✗  ghc   9.2.8       base-4.16.4.0                       
+✗  ghc   9.4.1       base-4.17.0.0                       
+✗  ghc   9.4.2       base-4.17.0.0                       
+✗  ghc   9.4.3       base-4.17.0.0                       
+✗  ghc   9.4.4       base-4.17.0.0                       
+✗  ghc   9.4.5       base-4.17.1.0                       
+✗  ghc   9.4.6       base-4.17.2.0                       
+✗  ghc   9.4.7       base-4.17.2.0                       
+✔✔ ghc   9.4.8       base-4.17.2.1                       
+✗  ghc   9.6.1       base-4.18.0.0                       
+✗  ghc   9.6.2       base-4.18.0.0                       
+✗  ghc   9.6.3       base-4.18.1.0                       
+✗  ghc   9.6.4       base-4.18.2.0                       
+✗  ghc   9.6.5       base-4.18.2.1                       
+✗  ghc   9.6.6       base-4.18.2.1                       
+✗  ghc   9.6.7       recommended,base-4.18.3.0           
+✗  ghc   9.8.1       base-4.19.0.0             2023-10-09
+✗  ghc   9.8.2       base-4.19.1.0             2024-02-23
+✗  ghc   9.8.4       base-4.19.2.0             2024-11-27
+✗  ghc   9.10.1      base-4.20.0.0                       
+✗  ghc   9.10.2      base-4.20.1.0                       
+✗  ghc   9.10.3      base-4.20.1.0                       
+✗  ghc   9.12.1      base-4.21.0.0             2024-12-15
+✗  ghc   9.12.2      base-4.21.0.0             2025-03-12
+✗  ghc   9.12.4      base-4.21.2.0             2026-03-26
+✗  ghc   9.14.1      latest,base-4.22.0.0      2025-12-18
+✔✔ ghcup 0.2.3.0     latest,recommended                  
+✗  hls   1.1.0                                 no-bindist
+✗  hls   1.2.0                                 no-bindist
+✗  hls   1.3.0                                 no-bindist
+✗  hls   1.4.0                                           
+✗  hls   1.5.0                                           
+✗  hls   1.5.1                                           
+✗  hls   1.6.0.0                                         
+✗  hls   1.6.1.0                                         
+✗  hls   1.7.0.0                                         
+✗  hls   1.8.0.0                                         
+✗  hls   1.9.0.0                                         
+✗  hls   1.9.1.0                                         
+✗  hls   1.10.0.0                                        
+✗  hls   2.0.0.0                                         
+✗  hls   2.0.0.1                                         
+✗  hls   2.1.0.0                                         
+✗  hls   2.2.0.0                                         
+✗  hls   2.3.0.0                                         
+✗  hls   2.4.0.0                                         
+✗  hls   2.5.0.0                                         
+✗  hls   2.6.0.0                                         
+✗  hls   2.7.0.0                                         
+✗  hls   2.8.0.0                                         
+✗  hls   2.9.0.0                                         
+✗  hls   2.9.0.1                                         
+✗  hls   2.10.0.0                                        
+✗  hls   2.11.0.0                                        
+✗  hls   2.12.0.0                                        
+✗  hls   2.13.0.0    recommended                         
+✗  hls   2.14.0.0    latest                              
+✗  stack 2.5.1                                 no-bindist
+✗  stack 2.7.1                                 no-bindist
+✗  stack 2.7.3                                 2022-02-02
+✗  stack 2.7.5                                           
+✗  stack 2.9.1                                           
+✗  stack 2.9.3                                           
+✗  stack 2.11.1                                          
+✗  stack 2.13.1                                          
+✗  stack 2.15.1                                          
+✗  stack 2.15.3                                          
+✔✔ stack 2.15.5                                          
+✗  stack 2.15.7                                          
+✗  stack 3.1.1                                           
+✗  stack 3.3.1                                           
+✗  stack 3.5.1                                           
+✗  stack 3.7.1       recommended                         
+✗  stack 3.9.1                                           
+✗  stack 3.9.3       latest                              
+```
+
+</details>
+
+* Install a specific version (Mac: `8.2.2 – 9.4.6` is recommended to use `Euterpea` ) but we'll use `9.4.8` 
 
 ```
-ghcup install ghc 8.6.3
+ghcup install ghc 9.4.8 
 ```
 
 * Set a specific version
 
 ```
-ghcup set ghc 8.6.3
+ghcup set ghc 9.4.8 
 ```
 
 ## :b: Euterpea Module Library
