@@ -10,21 +10,12 @@ Here is a quick recap of how we bypassed the C-compiler errors and successfully 
 
 The installation of older computer music libraries fails on modern Macs because core dependencies like `PortMidi-0.2.0.0` hardcode Intel-specific CPU instructions (`-msse2`) and use older CoreMIDI data configurations.
 
-### 1. Fix the Local Environment
-
-Modern GHC installations on macOS often cross-wire into a Homebrew-installed version of GNU `gcc` that breaks Apple’s specific compilation syntax. We fixed this by forcing our active terminal session to prioritize native Apple paths:
-
-```bash
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-
-```
-
-### 2. Bypass Hardcoded Intel Instructions
+### 1. Bypass Hardcoded Intel Instructions
 
 Because `PortMidi-0.2.0.0` was written before Apple Silicon existed, it forcefully pushes Intel flags into `hsc2hsc` during configuration, causing Apple Clang to crash. To resolve this:
 
-* We ran `cabal unpack PortMidi-0.2.0.0`.
-* Opened `PortMidi-0.2.0.0/PortMidi.cabal` and completely **deleted** the line: `cc-options: -msse2`.
+* Run `cabal unpack PortMidi-0.2.0.0`.
+* Opene `PortMidi-0.2.0.0/PortMidi.cabal` and completely **deleted** the line: `cc-options: -msse2`.
 
 ### 3. Handle Legacy C Pointers vs. Integers
 
@@ -36,12 +27,14 @@ packages:
   .
   ./PortMidi-0.2.0.0
 
+package PortMidi
+  ghc-options: -optc-Wno-error=int-conversion -optc-Wno-error=implicit-function-declaration
 ```
 
 
 * We executed the final install using a Clang flag that forces the compiler to treat those type-mismatches as minor warnings instead of catastrophic blockages:
 ```bash
-cabal install --lib --allow-newer --ghc-options="-optc-Wno-error=int-conversion"
+cabal install --lib --allow-newer 
 
 ```
 
