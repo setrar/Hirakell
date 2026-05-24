@@ -37,6 +37,30 @@ package PortMidi
 cabal install --lib --allow-newer 
 
 ```
+<details><summary>🪵 Log</summary>
+
+```lua
+
+Wrote tarball sdist to
+/Users/valiha/Developer/Euterpea2/dist-newstyle/sdist/Euterpea-2.0.8.tar.gz
+Wrote tarball sdist to
+/Users/valiha/Developer/Euterpea2/dist-newstyle/sdist/PortMidi-0.2.0.0.tar.gz
+Resolving dependencies...
+Build profile: -w ghc-9.4.8 -O1
+In order, the following will be built (use -v for more details):
+ - PortMidi-0.2.0.0 (lib:PortMidi) (requires build)
+ - Euterpea-2.0.8 (lib:Euterpea) (requires build)
+Starting     PortMidi-0.2.0.0 (all, legacy fallback)
+Building     PortMidi-0.2.0.0 (all, legacy fallback)
+Installing   PortMidi-0.2.0.0 (all, legacy fallback)
+Completed    PortMidi-0.2.0.0 (all, legacy fallback)
+Starting     Euterpea-2.0.8 (all, legacy fallback)
+Building     Euterpea-2.0.8 (all, legacy fallback)
+Installing   Euterpea-2.0.8 (all, legacy fallback)
+Completed    Euterpea-2.0.8 (all, legacy fallback)
+```
+
+</details>
 
 
 
