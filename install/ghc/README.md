@@ -80,7 +80,7 @@ ghci
 ghci> import Euterpea
 ghci> let melody = c 4 qn :+: e 4 qn :+: g 4 qn :+: c 5 hn
 ghci> play melody
-
+ghci> :q
 ```
 
 Enjoy coding your music!
