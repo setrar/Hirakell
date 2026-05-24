@@ -14,8 +14,8 @@ The installation of older computer music libraries fails on modern Macs because 
 
 Because `PortMidi-0.2.0.0` was written before Apple Silicon existed, it forcefully pushes Intel flags into `hsc2hsc` during configuration, causing Apple Clang to crash. To resolve this:
 
-* Run `cabal unpack PortMidi-0.2.0.0`.
-* Opene `PortMidi-0.2.0.0/PortMidi.cabal` and completely **deleted** the line: `cc-options: -msse2`.
+* Run `cabal unpack PortMidi-0.2.0.0` -> This will download the `PortMidi-0.2.0.0` source code
+* Open `PortMidi-0.2.0.0/PortMidi.cabal` and completely **deleted** the line: `cc-options: -msse2`  or use `sed -i '' '/cc-options:.*-msse2/d' PortMidi-0.2.0.0/PortMidi.cabal` (on MacOS)
 
 ### 3. Handle Legacy C Pointers vs. Integers
 
