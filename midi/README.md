@@ -26,3 +26,5 @@ hexdump -C c-4-qn.midi
 ```bash
 open c-4-qn.midi
 ```
+
+<image src=images/c-4-qn.png width='50%' height='50%' > </image>
