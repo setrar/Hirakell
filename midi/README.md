@@ -28,3 +28,39 @@ open c-4-qn.midi
 ```
 
 <image src=images/c-4-qn.png width='20%' height='20%' > </image>
+
+---
+
+# 🎹 To target your piano, follow this short sequence:
+
+### Step 1: Look up your Roland's Index Number
+
+In GHCi, type the word `devices` to fetch your Mac's current active port layout:
+
+```haskell
+ghci> devices
+
+```
+
+Look at the bottom half of the terminal printout under **Output devices**. You will see something like this:
+
+```text
+
+Output devices: 
+  OutputDeviceID 4	IAC Driver Bus 1
+  OutputDeviceID 5	Network RTP Session 1
+  OutputDeviceID 6	UMP Network Network MIDI 2.0 Session 1
+  OutputDeviceID 7	FP-30 Bluetooth
+
+```
+
+### Step 2: Use the ID Number
+
+Take the number listed right next to `FP-30` (in the example above, it is `1`) and hand it directly to `playDev`:
+
+```haskell
+ghci> playDev 7 music
+
+```
+
+*(Replace `1` with whichever specific integer index number `devices` assigned to your FP-30 layout during this session).* The moment you run it, GHCi will bypass your Mac’s generic background speakers and map your tracks directly over to your physical keyboard!
