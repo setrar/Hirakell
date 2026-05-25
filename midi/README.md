@@ -28,3 +28,29 @@ open c-4-qn.midi
 ```
 
 <image src=images/c-4-qn.png width='20%' height='20%' > </image>
+
+---
+
+## Run `guaguanco.lhs`
+
+
+### Step 1: Load it in GHCi
+
+Bypass your GNAT path adjustments and fire up GHCi:
+
+```bash
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+ghci guaguanco.lhs
+
+```
+
+Your prompt should now successfully change to `*Main>` without any pre-processor exit codes.
+
+### Step 2: Play the Rhumba!
+
+Now that the instructions are cleanly bundled inside the execution routine, simply type `main` at your prompt to fire the whole sequence off to your Roland piano:
+
+```haskell
+*Main> main
+
+```
