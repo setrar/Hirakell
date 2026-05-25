@@ -20,3 +20,9 @@ hexdump -C c-4-qn.midi
 00000020  00 90 3c 7f 60 80 3c 7f  60 ff 2f 00              |..<.`.<.`./.|
 0000002c
 ```
+
+- [ ] Open in MuseScore
+
+```bash
+open c-4-qn.midi
+```
