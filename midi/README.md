@@ -1,6 +1,6 @@
 # MIDI
 
-
+- [ ] run `ghci` GHC Interactive
 
 ```haskell
 import Euterpea
