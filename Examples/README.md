@@ -1,3 +1,6 @@
+:x: I use GarageBand, create a new projet and select `MIDI Software Instrument`
+
+
 The code `t251.lhs` provided is written in **Literate Haskell** (`.lhs`). In a Literate Haskell file, everything is treated as a text comment by default, *unless* a line begins with a `>` character. GHC knows to only compile the lines starting with `>`.
 
 Here is the step-by-step guide to saving, fixing, and running this file to actually hear the chords play!
