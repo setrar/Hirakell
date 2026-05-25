@@ -1,11 +1,11 @@
 # MIDI
 
 
-```zsh
-% ghci
-Prelude> import Euterpea
-Prelude> writeMidi "test.mid" $ c 4 qn
-Prelude> :q
+
+```haskell
+import Euterpea
+writeMidi "test.mid" $ c 4 qn
+:q
 ```
 
 ```zsh
