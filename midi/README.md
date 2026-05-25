@@ -4,6 +4,8 @@
 
 ```haskell
 import Euterpea
+music = c 4 qn :=: e 4 qn :+: d 4 qn :=: f 4 qn :+: e 4 qn :=: g 4 qn :+: f 4 qn :=: gs 4 qn :+: g 4 qn :=: a 4 qn :+: af 4 qn :=: b 4 qn :+: a 4 qn :=: c 5 qn :+: b 4 qn :=: d 5 qn :+: c 5 qn :=: e 5 qn
+writeMidi "c6dim.midi" $ music
 writeMidi "c-4-qn.midi" $ c 4 qn
 :q
 ```
@@ -29,31 +31,6 @@ open c-4-qn.midi
 
 <image src=images/c-4-qn.png width='20%' height='20%' > </image>
 
----
-
-## Run `guaguanco.lhs`
-
-
-### Step 1: Load it in GHCi
-
-Bypass your GNAT path adjustments and fire up GHCi:
-
-```bash
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
-ghci guaguanco.lhs
-
-```
-
-Your prompt should now successfully change to `*Main>` without any pre-processor exit codes.
-
-### Step 2: Play the Rhumba!
-
-Now that the instructions are cleanly bundled inside the execution routine, simply type `main` at your prompt to fire the whole sequence off to your Roland piano:
-
-```haskell
-*Main> main
-
-```
 # 🎹 To target your piano, follow this short sequence:
 
 ### Step 1: Look up your Roland's Index Number
@@ -83,6 +60,36 @@ Take the number listed right next to `FP-30` (in the example above, it is `1`) a
 
 ```haskell
 ghci> playDev 7 music
+
+```
+
+| | |
+|-|-|
+| <image src=images/FP-30-midi.png width='100%' height='100%' > </image> | <image src=images/FP-30-midi2.png width='100%' height='100%' > </image>
+
+---
+
+## Run `guaguanco.lhs`
+
+
+### Step 1: Load it in GHCi
+
+Bypass your GNAT path adjustments and fire up GHCi:
+
+```bash
+export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+ghci guaguanco.lhs
+
+```
+
+Your prompt should now successfully change to `*Main>` without any pre-processor exit codes.
+
+### Step 2: Play the Rhumba!
+
+Now that the instructions are cleanly bundled inside the execution routine, simply type `main` at your prompt to fire the whole sequence off to your Roland piano:
+
+```haskell
+*Main> main
 
 ```
 
