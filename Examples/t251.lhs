@@ -2,7 +2,7 @@
 
 As a simple example, suppose one wishes to generate a ii-V-I chord progres- sion in a particular key. In music theory, such a chord progression begins with a minor chord on the second degree of a major scale, followed by a major chord on the fifth degree, and ending in a major chord on the first
 
-```haskel
+```haskell
 import Euterpea
 
 t251 :: Music Pitch
