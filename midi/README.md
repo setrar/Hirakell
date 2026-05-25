@@ -8,6 +8,8 @@ writeMidi "c-4-qn.midi" $ c 4 qn
 :q
 ```
 
+- [ ] Observe the extracted notes
+
 ```sh
 hexdump -C c-4-qn.midi
 ```
