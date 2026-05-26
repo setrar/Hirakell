@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{lyluatex} % Integrates LilyPond notation dynamically
+
+\begin{document}
+
+Here is an example of an ascending scale embedded directly in our text:
+
+\begin{lilypond}
+  \relative c' {
+    \key c \major
+    \time 4/4
+    c4 d e f | g a b c
+  }
+\end{lilypond}
+
+\end{document}

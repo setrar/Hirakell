@@ -1,2 +1,4 @@
 *.log
 *.out
+*.mx1
+tmp-ly/

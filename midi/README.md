@@ -121,3 +121,39 @@ Now that the instructions are cleanly bundled inside the execution routine, simp
 ```
 
 *(Replace `1` with whichever specific integer index number `devices` assigned to your FP-30 layout during this session).* The moment you run it, GHCi will bypass your Mac’s generic background speakers and map your tracks directly over to your physical keyboard!
+
+
+---
+
+You are sitting at the interactive prompt for `lualatex`.
+
+Because you ran the command without specifying a file name, LuaLaTeX is currently waiting for you to type LaTeX code line-by-line right into the terminal, or it's waiting for you to provide the file name.
+
+### How to escape/exit this prompt
+
+If you arrived here by accident, you can safely exit and return to your normal terminal prompt by typing:
+
+```text
+\stop
+
+```
+
+*(Then hit `Enter`)*. Alternatively, you can usually use the keyboard shortcut `Ctrl + D` or `Ctrl + C`.
+
+---
+
+### How to compile your `.lhs` file with `lyluatex`
+
+To actually compile your file (assuming you named it `c6dimLaTeX.lhs` and want to use the `lyluatex` package with LilyPond), you need to pass the file name directly as an argument in your terminal:
+
+```bash
+lualatex --shell-escape c6dimLaTeX.lhs
+
+```
+
+### Important Checklist for LilyPond Integration:
+
+1. **LilyPond Installed:** Ensure `lilypond` is installed on your Mac (since your log indicates you are using Homebrew, you can check/install it via `brew install lilypond`).
+2. **`lyluatex` Package:** Make sure your `.lhs` file's LaTeX preamble contains `\usepackage{lyluatex}`.
+3. **The `--shell-escape` flag:** You already nailed this part! It is strictly required because LuaLaTeX needs permission to spin up LilyPond in the background to generate the sheet music images before stitching them into your final PDF.
+
