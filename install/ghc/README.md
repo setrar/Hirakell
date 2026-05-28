@@ -9,6 +9,18 @@ The installation of older computer music libraries fails on modern Macs because 
 git clone https://github.com/Euterpea/Euterpea2.git && cd Euterpea2
 ```
 
+### 0. Setup
+
+```bash
+ghcup list | grep ✔✔
+```
+```
+✔✔ cabal 3.10.3.0                                        
+✔✔ ghc   9.10.3      base-4.20.1.0                       
+✔✔ ghcup 0.2.5.0     latest,recommended                  
+✔✔ stack 2.15.5
+```
+
 ### 1. [PortMidi-haskell](https://github.com/PortMidi/PortMidi-haskell) - Bypass Hardcoded Intel Instructions
 
 Because `PortMidi-0.2.0.0` was written before Apple Silicon existed, it forcefully pushes Intel flags into `hsc2hsc` during configuration, causing Apple Clang to crash. To resolve this:
