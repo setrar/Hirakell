@@ -35,7 +35,7 @@ Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 ```
 
-use `$PATH=/usr/bin:$PATH` if not sure
+💡 use `$PATH=/usr/bin:$PATH` if not sure
 
 ### 1. [PortMidi-haskell](https://github.com/PortMidi/PortMidi-haskell) - Bypass Hardcoded Intel Instructions
 
