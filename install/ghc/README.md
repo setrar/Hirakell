@@ -105,6 +105,20 @@ ghci
 
 ```haskell
 ghci> import Euterpea
+ghci> devices
+
+Input devices: 
+  InputDeviceID 0	IAC Driver Bus 1
+  InputDeviceID 1	Network RTP Session 1
+  InputDeviceID 2	UMP Network Network MIDI 2.0 Session 1
+  InputDeviceID 3	FP-30 Bluetooth
+
+Output devices: 
+  OutputDeviceID 4	IAC Driver Bus 1
+  OutputDeviceID 5	Network RTP Session 1
+  OutputDeviceID 6	UMP Network Network MIDI 2.0 Session 1
+  OutputDeviceID 7	FP-30 Bluetooth
+
 ghci> let melody = c 4 qn :+: e 4 qn :+: g 4 qn :+: c 5 hn
 ghci> play melody
 ghci> :q
