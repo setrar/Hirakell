@@ -11,6 +11,8 @@ git clone https://github.com/Euterpea/Euterpea2.git && cd Euterpea2
 
 ### 0. Setup
 
+- [ ] `GHC` version is `9.10.3` when using [ghcup](https://www.haskell.org/ghcup/)
+
 ```bash
 ghcup list | grep ✔✔
 ```
