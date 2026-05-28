@@ -120,7 +120,7 @@ Output devices:
   OutputDeviceID 7	FP-30 Bluetooth
 
 ghci> let melody = c 4 qn :+: e 4 qn :+: g 4 qn :+: c 5 hn
-ghci> play melody
+ghci> playDev 7 melody
 ghci> :q
 ```
 
