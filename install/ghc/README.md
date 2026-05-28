@@ -23,7 +23,7 @@ ghcup list | grep ✔✔
 ✔✔ stack 2.15.5
 ```
 
-- [ ] On Mac 🍎 Silicon, check `gcc` version
+- [ ] On Mac 🍎 Silicon, check `gcc` version is Mac's, i.e. not GNU
 
 ```
 gcc --version
