@@ -288,16 +288,16 @@ ghcup list
 
 </details>
 
-* Install a specific version (Mac: `8.2.2 – 9.4.6` is recommended to use `Euterpea` ) but we'll use `9.4.8` 
+* Install a specific version (Mac: `8.2.2 – 9.4.6` is recommended to use `Euterpea` ) but we'll use `9.10.3` 
 
 ```
-ghcup install ghc 9.4.8 
+ghcup install ghc 9.10.3
 ```
 
 * Set a specific version
 
 ```
-ghcup set ghc 9.4.8 
+ghcup set ghc 9.10.3
 ```
 
 ## :b: Euterpea Module Library
@@ -317,7 +317,7 @@ The index-state is set to 2026-05-24T18:52:09Z.
 
 </details>
 
-* Install the `Euterpea` module
+* Install the `Euterpea` module :x: This isn't working you need to install manually
 
 ```
 cabal install Euterpea
