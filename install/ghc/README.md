@@ -35,6 +35,8 @@ Thread model: posix
 InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 ```
 
+use `$PATH=/usr/bin:$PATH` if not sure
+
 ### 1. [PortMidi-haskell](https://github.com/PortMidi/PortMidi-haskell) - Bypass Hardcoded Intel Instructions
 
 Because `PortMidi-0.2.0.0` was written before Apple Silicon existed, it forcefully pushes Intel flags into `hsc2hsc` during configuration, causing Apple Clang to crash. To resolve this:
