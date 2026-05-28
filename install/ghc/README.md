@@ -16,11 +16,23 @@ git clone https://github.com/Euterpea/Euterpea2.git && cd Euterpea2
 ```bash
 ghcup list | grep ✔✔
 ```
-```
+```lua
 ✔✔ cabal 3.10.3.0                                        
 ✔✔ ghc   9.10.3      base-4.20.1.0                       
 ✔✔ ghcup 0.2.5.0     latest,recommended                  
 ✔✔ stack 2.15.5
+```
+
+- [ ] On Mac 🍎 Silicon, check `gcc` version
+
+```
+gcc --version
+```
+```lua
+Apple clang version 17.0.0 (clang-1700.6.3.2)
+Target: arm64-apple-darwin25.5.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 ```
 
 ### 1. [PortMidi-haskell](https://github.com/PortMidi/PortMidi-haskell) - Bypass Hardcoded Intel Instructions
