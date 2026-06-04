@@ -1,4 +1,4 @@
-Ah! You are entirely right, and looking at Chris Parks' explanation in the video, it makes complete sense why no triplets are needed [[01:14](http://www.youtube.com/watch?v=HADgC9boReM&t=74)].
+Looking at Chris Parks' explanation in the video, it makes complete sense why no triplets are needed [[01:14](http://www.youtube.com/watch?v=HADgC9boReM&t=74)].
 
 My mistake was applying the concept to a standard **major scale** (7 notes). In the video, Chris Parks explains Barry Harris's chromatic scale starting from a **Dominant 7th scale** (Mixolydian), which natively has **8 notes** (for example, in D7: D, E, F#, G, A, B, C, D) [[00:31](http://www.youtube.com/watch?v=HADgC9boReM&t=31)].
 
