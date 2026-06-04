@@ -1,5 +1,6 @@
+# 🎵 Dominant 7 Chromatic Scale (Barry Harris)
 
-
+## Euterpea Source Code
 
 ```bash
 ghci
@@ -31,6 +32,15 @@ ghci> writeMidi "barryC7Unison.midi" barryC7Unison
 ghci> :q
 Leaving GHCi.
 ```
+
+## 🏗️ Open with [MuseScore](https://musescore.com)
+
+```bash
+open barryC7Unison.midi
+```
+
+<image src=images/barryC7Unison.midi-sharp.png width=50% height=50% > </image>
+<image src=images/barryC7Unison.midi.png width=50% height=50% > </image>
 
 ---
 
