@@ -1,18 +1,26 @@
+Ah! You are entirely right, and looking at Chris Parks' explanation in the video, it makes complete sense why no triplets are needed [[01:14](http://www.youtube.com/watch?v=HADgC9boReM&t=74)].
 
-```Haskell
+My mistake was applying the concept to a standard **major scale** (7 notes). In the video, Chris Parks explains Barry Harris's chromatic scale starting from a **Dominant 7th scale** (Mixolydian), which natively has **8 notes** (for example, in D7: D, E, F#, G, A, B, C, D) [[00:31](http://www.youtube.com/watch?v=HADgC9boReM&t=31)].
+
+Because an 8-note scale naturally fits perfectly into a 4/4 bar of eighth notes, when Barry adds exactly **7 passing notes** to it, the scale expands to exactly **15 notes** [[00:54](http://www.youtube.com/watch?v=HADgC9boReM&t=54)]. As Chris says, this means **every single note** can be played as a straight eighth note—landing a scale tone perfectly on every single downbeat without any rhythmic squeezing or triplets [[00:54](http://www.youtube.com/watch?v=HADgC9boReM&t=54)].
+
+Here is how Chris Parks breaks down the exact **15 notes** for the **D7 Dominant scale** [[01:00](http://www.youtube.com/watch?v=HADgC9boReM&t=60)]:
+
+* **D to E:** Add **D# / Eb** [[01:00](http://www.youtube.com/watch?v=HADgC9boReM&t=60)]
+* **E to F#:** Add **F** [[01:11](http://www.youtube.com/watch?v=HADgC9boReM&t=71)]
+* **F# to G:** *Natural half-step.* Barry jumps up to **A**, then drops back to **G** [[01:17](http://www.youtube.com/watch?v=HADgC9boReM&t=77)].
+* **G to A:** Add **G#** [[01:31](http://www.youtube.com/watch?v=HADgC9boReM&t=91)]
+* **A to B:** Add **A#** [[01:36](http://www.youtube.com/watch?v=HADgC9boReM&t=96)]
+* **B to C:** *Natural half-step.* Barry jumps up to **D**, then drops back to **C** [[01:43](http://www.youtube.com/watch?v=HADgC9boReM&t=103)].
+* **C to D:** Add **C#** [[01:47](http://www.youtube.com/watch?v=HADgC9boReM&t=107)].
+
+### The Correct Euterpea Haskell Code (Straight Eighth Notes)
+
+Because every single interval fits cleanly into straight eighth notes (`en`), the Haskell code is beautifully elegant. No triplets or tempo modifiers required:
+
+```haskell
 module BarryHarris where
 import Euterpea
-
-barryC7Ascending :: Music Pitch
-barryC7Ascending = 
-    note en (C, 4)  :+: note en (Cs, 4) :+: -- C  to C#
-    note en (D, 4)  :+: note en (Ds, 4) :+: -- D  to D#
-    note en (E, 4)  :+: note en (G, 4)  :+: -- E  to G (The Leap!)
-    note en (F, 4)  :+: note en (Fs, 4) :+: -- F  to F#
-    note en (G, 4)  :+: note en (Gs, 4) :+: -- G  to G#
-    note en (A, 4)  :+: note en (C, 5)  :+: -- A  to C (The Leap!)
-    note en (As, 4) :+: note en (B, 4)  :+: -- A# to B 
-    note qn (C, 5)                          -- Resolve to high C
 
 -- Barry's Beautiful Chromatic Scale on D7 as taught by Chris Parks
 barryD7Ascending :: Music Pitch
@@ -26,12 +34,9 @@ barryD7Ascending =
     note en (C, 5)  :+: note en (Cs, 5) :+: -- C to C#
     note qn (D, 5)                          -- Resolve straight to high D
 
--- The combined unison performance
--- Both lines run simultaneously using the :=: operator
-barryC7Unison :: Music Pitch
-barryC7Unison = barryC7Ascending :=: transpose 4 barryC7Ascending
-
 playBarry :: IO ()
-playBarry = play (tempo 130 (instrument AcousticGrandPiano barryC7Ascending))
+playBarry = play (tempo 130 (instrument AcousticGrandPiano barryD7Ascending))
 
 ```
+
+Now, if you play this stream, every single scale tone (D, E, F#, G, A, B, C) lands squarely on a strong metric beat, giving you that authentic, flowing bebop line Chris demonstrates [[01:51](http://www.youtube.com/watch?v=HADgC9boReM&t=111)]!
