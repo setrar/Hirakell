@@ -12,61 +12,110 @@ clvInstr = HiWoodBlock
 katInstr :: PercussionSound
 katInstr = LowWoodBlock
 
--- Short helpers to make the grid highly readable
-cHit :: Music Pitch
-cHit = perc clvInstr sn
+congaMute :: PercussionSound
+congaMute = MuteHiConga
 
-kHit :: Music Pitch
-kHit = perc katInstr sn
+congaOpen :: PercussionSound
+congaOpen = OpenHiConga
+
+tumbaLow :: PercussionSound
+tumbaLow = LowConga
+
+-- Short helpers to keep the 16th-note grid clean
+clvH :: Music Pitch
+clvH = perc clvInstr sn
+
+katH :: Music Pitch
+katH = perc katInstr sn
+
+conM :: Music Pitch
+conM = perc congaMute sn
+
+conO :: Music Pitch
+conO = perc congaOpen sn
+
+tumL :: Music Pitch
+tumL = perc tumbaLow sn
 
 -- ==========================================
 -- 2. RHYTHMIC PATTERNS
 -- ==========================================
 
--- Clave Pattern (from previous image)
+-- Clave Pattern
 rumbaClave :: Music Pitch
 rumbaClave = line [
     -- BAR 1
-    cHit,    rest sn, rest sn, rest sn,
-    rest sn, rest sn, cHit,    rest sn,
+    clvH,    rest sn, rest sn, rest sn,
+    rest sn, rest sn, clvH,    rest sn,
     rest sn, rest sn, rest sn, rest sn,
-    rest sn, rest sn, cHit,    rest sn,
+    rest sn, rest sn, clvH,    rest sn,
     -- BAR 2
     rest sn, rest sn, rest sn, rest sn,
-    cHit,    rest sn, rest sn, rest sn,
-    cHit,    rest sn, rest sn, rest sn,
+    clvH,    rest sn, rest sn, rest sn,
+    clvH,    rest sn, rest sn, rest sn,
     rest sn, rest sn, rest sn, rest sn
   ]
 
--- Káta Pattern (from image_ed2acc.png)
+-- Káta Pattern
 kataPattern :: Music Pitch
 kataPattern = line [
     -- BAR 1
-    kHit,    rest sn, rest sn, rest sn, -- Beat 1: Quarter note (hit + 3 rests)
-    kHit,    rest sn, kHit,    rest sn, -- Beat 2: Two 8th notes
-    rest sn, rest sn, kHit,    rest sn, -- Beat 3: 8th rest, 8th note
-    rest sn, rest sn, kHit,    rest sn, -- Beat 4: 8th rest, 8th note
+    katH,    rest sn, rest sn, rest sn,
+    katH,    rest sn, katH,    rest sn,
+    rest sn, rest sn, katH,    rest sn,
+    rest sn, rest sn, katH,    rest sn,
+    -- BAR 2
+    katH,    rest sn, rest sn, rest sn,
+    katH,    rest sn, rest sn, rest sn,
+    katH,    rest sn, katH,    rest sn,
+    rest sn, rest sn, katH,    rest sn
+  ]
+
+-- Congas & Tumbadora Pattern (from image_ed10a5.png)
+congaPattern :: Music Pitch
+-- congaPattern = line [
+--     -- BAR 1
+--     conO,    rest sn, conM,    rest sn, -- Beat 1: Open, Mute (8th notes)
+--     rest sn, rest sn, conM,    rest sn, -- Beat 2: 8th rest, Mute
+--     conO,    conO,    rest sn, rest sn, -- Beat 3: Two 16th opens, rest
+--     tumL,    rest sn, rest sn, rest sn, -- Beat 4: Accented Low Tumbadora!
+
+--     -- BAR 2
+--     conO,    rest sn, conM,    rest sn, -- Beat 1: Open, Mute
+--     rest sn, rest sn, conM,    rest sn, -- Beat 2: 8th rest, Mute
+--     conO,    conO,    rest sn, rest sn, -- Beat 3: Two 16th opens, rest
+--     conO,    rest sn, rest sn, rest sn  -- Beat 4: Resolves on Middle Open
+--   ]
+congaPattern = line [
+    -- BAR 1
+    rest qn, -- Beat 1: 4th rest
+    rest qn, -- Beat 2: 4th rest
+    rest qn, -- Beat 3: 4th rest
+    -- tumL,    rest sn, rest sn, rest sn, -- Beat 4: Accented Low Tumbadora!
+    rest qn, -- Beat 4: 4th rest
 
     -- BAR 2
-    kHit,    rest sn, rest sn, rest sn, -- Beat 1: Quarter note
-    kHit,    rest sn, rest sn, rest sn, -- Beat 2: Quarter note
-    kHit,    rest sn, kHit,    rest sn, -- Beat 3: Two 8th notes
-    rest sn, rest sn, kHit,    rest sn  -- Beat 4: 8th rest, 8th note
+    rest sn, -- Beat 1: 4th rest
+    conO,    rest sn, conM,    rest sn, -- Beat 1: Open, Mute (8th notes)
+    tumL,    rest sn, rest sn, rest sn, -- Beat 3: Accented Low Tumbadora!
+    rest qn, -- Beat 3: 4th rest
+    -- conO,    rest sn, rest sn, rest sn  -- Beat 4: Resolves on Middle Open
+    rest sn -- Beat 4: 4th rest
   ]
 
 -- ==========================================
 -- 3. ASSEMBLY & PLAYBACK
 -- ==========================================
 
--- Combine them together in parallel using a list chord
+-- Combine all 3 layers in parallel
 guaguancoGroove :: Music Pitch
-guaguancoGroove = chord [rumbaClave, kataPattern]
+guaguancoGroove = chord [rumbaClave, kataPattern, congaPattern]
 
 -- Infinite loop helper
 loopForever :: Music a -> Music a
 loopForever m = m :+: loopForever m
 
--- Play both patterns together at 140 BPM
+-- Play the full traditional ensemble at 140 BPM
 main :: IO ()
 main = play $ tempo (140/60) $ loopForever guaguancoGroove
 
