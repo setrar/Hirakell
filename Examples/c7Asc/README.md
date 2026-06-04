@@ -39,8 +39,14 @@ Leaving GHCi.
 open barryC7Unison.midi
 ```
 
-<image src=images/barryC7Unison.midi-sharp.png width=50% height=50% > </image>
+- [ ] Straight out of Euterpea
+
 <image src=images/barryC7Unison.midi.png width=50% height=50% > </image>
+
+- [ ] Manually rearranged
+
+<image src=images/barryC7Unison.midi-sharp.png width=50% height=50% > </image>
+
 
 ---
 
