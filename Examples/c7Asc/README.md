@@ -4,7 +4,7 @@
 ```bash
 ghci
 ```
-```
+```Haskell
 Loaded package environment from /Users/valiha/.ghc/aarch64-darwin-9.6.6/environments/default
 GHCi, version 9.6.6: https://www.haskell.org/ghc/  :? for help
 ghci> :l c7Asc.hs 
