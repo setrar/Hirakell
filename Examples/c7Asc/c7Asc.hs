@@ -29,5 +29,7 @@ barryD7Ascending =
 barryC7Unison :: Music Pitch
 barryC7Unison = barryC7Ascending :=: transpose 4 barryC7Ascending
 
-playBarry :: IO ()
-playBarry = play (tempo 130 (instrument AcousticGrandPiano barryC7Ascending))
+main :: IO ()
+main = do
+--    play (tempo 130 (instrument AcousticGrandPiano barryC7Ascending))
+    play $ instrument AcousticGrandPiano barryC7Unison
