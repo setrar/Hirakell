@@ -172,6 +172,20 @@ compiled using version 3.14.2.0 of the Cabal library
 ```bash
 cabal update
 ```
+<details><summary>🪵 Log</summary>
+
+```lua
+
+Configuration is affected by the following files:
+- cabal.project
+Downloading the latest package list from hackage.haskell.org
+Package list of hackage.haskell.org has been updated.
+The index-state is set to 2026-06-24T15:29:52Z.
+To revert to previous state run:
+    cabal v2-update 'hackage.haskell.org,2026-05-24T18:52:09Z'
+```
+
+</details>
 
 ## After that, try your install again
 
