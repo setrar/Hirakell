@@ -1,6 +1,6 @@
 # ghc
 
-Based on [troubleshooting](https://www.euterpea.com/troubleshooting) page,
+Based on [troubleshooting](https://www.euterpea.com/troubleshooting#:~:text=allow,newer) page,
 
 > Most successful installations use older versions of GHC. If you have a newer GHC version, you can try using the “–lib” flag:
 
