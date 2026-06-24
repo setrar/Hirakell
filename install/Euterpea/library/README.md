@@ -25,13 +25,6 @@ cabal install Euterpea
 <details><summary>🪓 Log</summary>
 
 ```lua
-Downloading the latest package list from hackage.haskell.org
-Package list of hackage.haskell.org is up to date.
-The index-state is set to 2026-05-24T18:52:09Z.
-valiha@Mac Hirakell % cd ..
-valiha@Mac Developer % cd -
-~/Developer/Hirakell
-valiha@Mac Hirakell % cabal install Euterpea
 Error: cabal: Could not resolve dependencies:
 [__0] trying: Hirakell-0.1.0.0 (user goal)
 [__1] next goal: base (dependency of Hirakell)
