@@ -9,7 +9,7 @@ mkdir HSoM-testing
 ```bash
 cabal init --interactive
 ```
-<details><summary>i🪵 Log</summary>
+<details><summary>🪵 Log</summary>
 
 ```lua
 What does the package build:
