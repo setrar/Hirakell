@@ -28,7 +28,7 @@ Based on your recent work with `cabal` and `ghci`, you're already engaging with 
 
 *   **GHC (Glasgow Haskell Compiler)**: The primary compiler, which is known for its robust optimization and extensions.
 *   **GHCi**: The interactive interpreter, which is perfect for testing out libraries (like `Euterpea`) and experimenting with code.
-*   **Cabal/[GHCup](ghcup)**: The build tool and version manager, which are essential for managing projects, packages, and different GHC versions.
+*   **[Cabal](cabal)/[GHCup](ghcup)**: The build tool and version manager, which are essential for managing projects, packages, and different GHC versions.
 
 ### 💡 In summary
 
