@@ -69,6 +69,7 @@ ghcup set ghc 9.12.4
 # 6. Verify
 ghc --version
 ```
+> The Glorious Glasgow Haskell Compilation System, version 9.12.4
 
 ## Alternative: Use `ghcup tui` (interactive mode)
 
