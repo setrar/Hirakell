@@ -65,6 +65,7 @@ ghcup set ghc 9.12.4
 
 </details>
 
+```bash
 # 6. Verify
 ghc --version
 ```
