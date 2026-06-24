@@ -98,3 +98,33 @@ ghcup list | grep "ghc-9\."
 ```
 
 **Note**: Since GHC 9.12.4 might not be available yet, you may need to settle for 9.12.1 or 9.12.2 if they're in the list. Use `ghcup list | grep "9.12"` to see what's actually available.
+
+***
+
+```bash
+ghcup install cabal 3.14.2.0
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+[ Info  ] downloading: https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-0.1.0.yaml as file /Users/valiha/.ghcup/cache/ghcup-0.1.0.yaml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+[ Info  ] downloading: https://downloads.haskell.org/~ghcup/unofficial-bindists/cabal/3.14.2.0/cabal-install-3.14.2.0-aarch64-apple-darwin.tar.xz as file /Users/valiha/.ghcup/tmp/ghcup-8a767dc2325b7fdd/cabal-install-3.14.2.0-aarch64-apple-darwin.tar.xz
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 12.3M  100 12.3M    0     0   433k      0  0:00:29  0:00:29 --:--:--  458k
+[ Info  ] verifying digest of: cabal-install-3.14.2.0-aarch64-apple-darwin.tar.xz
+[ Info  ] Unpacking: cabal-install-3.14.2.0-aarch64-apple-darwin.tar.xz to /Users/valiha/.ghcup/tmp/ghcup-6a140a266f335360
+[ Info  ] Installing cabal
+[ Warn  ] GHC-9.12.4 appears to have no corresponding HLS-2.13.0.0 binary.
+[ ...   ] Haskell IDE support may not work.
+[ ...   ] You can try to either: 
+[ ...   ]   1. Install a different HLS version (e.g. downgrade for older GHCs)
+[ ...   ]   2. Install and set one of the following GHCs: [9.10.3, 9.12.2, 9.14.1, 9.6.7, 9.8.4]
+[ ...   ]   3. Let GHCup compile HLS for you, e.g. run: ghcup compile hls -g 2.13.0.0 --ghc 9.12.4     (see https://www.haskell.org/ghcup/guide/#hls for more information)
+[ Info  ] cabal installation successful
+```
+
+</details>
