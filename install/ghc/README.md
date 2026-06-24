@@ -1,32 +1,5 @@
 # ghc
 
-```bash
-# List all tools and filter with grep
-ghcup list | grep ghc
-
-# Or more specifically for GHC
-ghcup list | grep "^ghc"
-
-# To see available versions of GHC with their status
-ghcup list | grep "ghc" | head -20
-```
-
-## To see if GHC 9.12.x is available:
-
-```bash
-ghcup list | grep "9.12"
-```
-
-## To install a specific version:
-
-```bash
-# Install the version you see in the list
-ghcup install ghc 9.12.4
-
-# Or install the latest available
-ghcup install ghc latest
-```
-
 ## Complete workflow:
 
 ```bash
