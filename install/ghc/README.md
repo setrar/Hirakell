@@ -21,7 +21,7 @@ ghcup list | grep "9.12"
 
 ```bash
 # Install the version you see in the list
-ghcup install ghc 9.12.1
+ghcup install ghc 9.12.4
 
 # Or install the latest available
 ghcup install ghc latest
@@ -42,7 +42,7 @@ ghcup list | grep "9.12"
 
 ```
 # 4. Install the version you want (adjust to what's available)
-ghcup install ghc 9.12.1
+ghcup install ghc 9.12.4
 ```
 <details><summary>🪵 Log</summary>
 
@@ -74,7 +74,7 @@ ghcup install ghc 9.12.4
 
 ```
 # 5. Set as default
-ghcup set ghc 9.12.1
+ghcup set ghc 9.12.4
 
 # 6. Verify
 ghc --version
