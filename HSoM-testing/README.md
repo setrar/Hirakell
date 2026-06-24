@@ -486,3 +486,6 @@ ghci> :q
 
 </details>
 
+# 📚 References
+
+- [ ] [Installation issues on macOS Sonoma 14.5 with GHC 9.4.8 and Cabal 3.10.3.0 #59](https://github.com/Euterpea/Euterpea2/issues/59)
