@@ -4,13 +4,13 @@ I am reading the [The Haskell School of Music: From Signals to Symphonies](https
 
 ## :o: Installation
 
-- [x] [Haskell Installation](docs/README.md#a-ghcup)
+- [x] [Haskell Installation](install/Haskell)
 
-- [x] [Euterpea Installation](docs/README.md#b-euterpea-module-library)
+- [x] [Euterpea Installation](install/Euterpea)
 
 - [x] [HSoM](docs/README.md#ab-hsom-module-library-optional)
 
-- [x] [a MIDI Player](docs/README.md#o-midi-player)
+- [x] [a MIDI Player](midi/simplesynth)
 
 
 
