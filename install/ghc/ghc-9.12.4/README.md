@@ -11,7 +11,16 @@ git clone https://github.com/Euterpea/Euterpea2.git && cd Euterpea2
 
 # 0. GHC and Cabal Setup
 
-
+```bash
+ghcup list | grep ✔✔
+```
+```lua
+✔✔ cabal 3.14.2.0    recommended                                     
+✔✔ ghc   9.12.4      base-4.21.2.0             2026-03-26            
+✔✔ ghcup 0.2.6.2     latest,recommended                              
+✔✔ hls   2.13.0.0    recommended                                     
+✔✔ stack 2.15.5             
+```
 
 # ghc
 
