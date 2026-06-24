@@ -45,9 +45,25 @@ ghcup install ghc 9.12.4
 
 </details>
 
-```
+```bash
 # 5. Set as default
 ghcup set ghc 9.12.4
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+ghcup set ghc 9.12.4
+[ Warn  ] GHC-9.12.4 appears to have no corresponding HLS-2.13.0.0 binary.
+[ ...   ] Haskell IDE support may not work.
+[ ...   ] You can try to either: 
+[ ...   ]   1. Install a different HLS version (e.g. downgrade for older GHCs)
+[ ...   ]   2. Install and set one of the following GHCs: [9.10.3, 9.12.2, 9.14.1, 9.6.7, 9.8.4]
+[ ...   ]   3. Let GHCup compile HLS for you, e.g. run: ghcup compile hls -g 2.13.0.0 --ghc 9.12.4     (see https://www.haskell.org/ghcup/guide/#hls for more information)
+[ Info  ] ghc 9.12.4 successfully set as default version
+
+```
+
+</details>
 
 # 6. Verify
 ghc --version
