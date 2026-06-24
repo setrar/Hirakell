@@ -101,6 +101,8 @@ ghcup list | grep "ghc-9\."
 
 ***
 
+## Install Cabal 3.14.2.0
+
 ```bash
 ghcup install cabal 3.14.2.0
 ```
@@ -128,3 +130,66 @@ ghcup install cabal 3.14.2.0
 ```
 
 </details>
+
+
+## Set it as default
+
+```bash
+ghcup set cabal 3.14.2.0
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+[ Info  ] downloading: https://raw.githubusercontent.com/haskell/ghcup-metadata/master/ghcup-0.1.0.yaml as file /Users/valiha/.ghcup/cache/ghcup-0.1.0.yaml
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
+[ Warn  ] GHC-9.12.4 appears to have no corresponding HLS-2.13.0.0 binary.
+[ ...   ] Haskell IDE support may not work.
+[ ...   ] You can try to either: 
+[ ...   ]   1. Install a different HLS version (e.g. downgrade for older GHCs)
+[ ...   ]   2. Install and set one of the following GHCs: [9.10.3, 9.12.2, 9.14.1, 9.6.7, 9.8.4]
+[ ...   ]   3. Let GHCup compile HLS for you, e.g. run: ghcup compile hls -g 2.13.0.0 --ghc 9.12.4     (see https://www.haskell.org/ghcup/guide/#hls for more information)
+[ Info  ] cabal 3.14.2.0 successfully set as default version
+```
+
+</details>
+
+## Verify
+
+```bash
+cabal --version
+```
+
+You should see something like:
+```
+cabal-install version 3.14.2.0
+compiled using version 3.14.2.0 of the Cabal library
+```
+
+## Then update the package list
+
+```bash
+cabal update
+```
+
+## After that, try your install again
+
+```bash
+cabal install --lib --allow-newer
+```
+
+### Alternative: Install the latest version
+
+If you want the absolute latest (3.16.1.0):
+
+```bash
+ghcup install cabal 3.16.1.0
+ghcup set cabal 3.16.1.0
+```
+
+But **3.14.2.0** is recommended and should work perfectly with GHC 9.12.4.
+
+### Why the older version failed
+
+Cabal 3.10.3.0 (which came with GHC 9.6.x) doesn't understand how to handle GHC 9.12.4's newer package format, leading to the module re-export error. Cabal 3.14.2.0 and above are designed specifically to work with GHC 9.12 and later.
