@@ -486,6 +486,116 @@ ghci> :q
 
 </details>
 
+
+## Install Globally
+
+```bash
+ghc-pkg list
+```
+<details><summary>🪵 Log</summary>
+
+```lua
+/Users/valiha/.ghcup/ghc/9.12.4/lib/ghc-9.12.4/lib/package.conf.d
+    Cabal-3.14.2.0
+    Cabal-syntax-3.14.2.0
+    array-0.5.8.0
+    base-4.21.2.0
+    binary-0.8.9.3
+    bytestring-0.12.2.0
+    containers-0.7
+    deepseq-1.5.1.0
+    directory-1.3.10.1
+    exceptions-0.10.12
+    file-io-0.1.6
+    filepath-1.5.5.0
+    ghc-9.12.4
+    ghc-bignum-1.3
+    ghc-boot-9.12.4
+    ghc-boot-th-9.12.4
+    ghc-compact-0.1.0.0
+    ghc-experimental-9.1204.0
+    ghc-heap-9.12.4
+    ghc-internal-9.1204.0
+    ghc-platform-0.1.0.0
+    ghc-prim-0.13.0
+    ghc-toolchain-0.1.0.0
+    ghci-9.12.4
+    haddock-api-2.32.0
+    haddock-library-1.11.0
+    haskeline-0.8.4.1
+    hpc-0.7.0.2
+    integer-gmp-1.1
+    mtl-2.3.2
+    os-string-2.0.10
+    parsec-3.1.18.0
+    pretty-1.1.3.6
+    process-1.6.26.1
+    rts-1.0.3
+    semaphore-compat-1.0.0
+    stm-2.5.3.1
+    system-cxx-std-lib-1.0
+    template-haskell-2.23.0.0
+    terminfo-0.4.1.7
+    text-2.1.4
+    time-1.14
+    transformers-0.6.3.0
+    unix-2.8.8.0
+    xhtml-3000.2.2.1
+```
+
+</details>
+
+The `ghc-pkg list` output shows that **Euterpea and HSoM are not installed globally** in your GHC 9.12.4 package database. They only exist in your project's local `dist-newstyle` directory as downloaded source dependencies, but they haven't been registered as packages that GHC can see.
+
+This is why you're getting the "hidden package" error - GHC knows about them from the build plan but they're not properly installed.
+
+## Solutions
+
+### Option 1: Install Euterpea and HSoM Globally (Recommended for your use case)
+
+Since you're working with these libraries directly, install them so they're available globally:
+
+```bash
+# Install Euterpea
+cabal install Euterpea --lib --allow-newer
+
+# Install HSoM
+cabal install HSoM --lib --allow-newer
+```
+
+After this, run `ghc-pkg list` again and you should see `Euterpea` and `HSoM` in the list.
+
+## Recommended Approach
+
+Since you're exploring Euterpea and HSoM, I'd recommend **Option 1** - installing them globally:
+
+```bash
+# Update package list first
+cabal update
+
+# Install the libraries globally
+cabal install Euterpea --lib --allow-newer
+cabal install HSoM --lib --allow-newer
+
+# Verify installation
+ghc-pkg list | grep -E "Euterpea|HSoM"
+
+# Now cabal repl should work
+cabal repl
+```
+
+After global installation, you should see them in `ghc-pkg list`, and you'll be able to import them in GHCi or in any Haskell project without additional configuration.
+
+## Note on GHC 9.12.4 Compatibility
+
+Euterpea and HSoM are older libraries that may not be fully compatible with GHC 9.12.4. If the global installation fails with dependency errors, you might need to:
+
+1. Use an older GHC version (like 9.6.6)
+2. Use the `--allow-newer` flag to relax version constraints
+3. Build from source with patches
+
+Given your `dist-newstyle` shows they were successfully downloaded and built as dependencies, they should work, but some functions might have issues with newer GHC.
+
 # 📚 References
 
 - [ ] [Installation issues on macOS Sonoma 14.5 with GHC 9.4.8 and Cabal 3.10.3.0 #59](https://github.com/Euterpea/Euterpea2/issues/59)
