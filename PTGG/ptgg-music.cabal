@@ -1,0 +1,17 @@
+cabal-version:      3.0
+name:               ptgg-music
+version:            0.1.0.0
+synopsis:           Probabilistic Temporal Graph Grammars for Music
+license:            MIT
+author:             Your Name
+maintainer:         your.email@example.com
+category:           Sound/Music
+build-type:         Simple
+
+executable ptgg-music
+    main-is:          Main.hs
+    build-depends:    base >= 4.14 && < 5,
+                      random >= 1.2 && < 2.0
+    hs-source-dirs:   .
+    default-language: Haskell2010
+    ghc-options:      -Wall
