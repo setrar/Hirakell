@@ -4,8 +4,9 @@ The details of the Haskell implementation and the concept of **Chord Spaces** as
 
 The Haskell implementation relies on functional concepts, custom data structures, and state management via a custom monad to stochastically generate music.
 
-* 
-**Core Data Types:** The grammar represents basic chord symbols (`CType`) and key changes/modulations (`MType`) based purely on scale degrees (written as uppercase Roman numerals to simplify the rule set).
+#### **Core Data Types:** 
+
+The grammar represents basic chord symbols (`CType`) and key changes/modulations (`MType`) based purely on scale degrees (written as uppercase Roman numerals to simplify the rule set).
 
 
 ```haskell
@@ -18,8 +19,9 @@ data MType = M2 | M3 | M4 | M5 | M6 | M7
 ```
 
 
-* 
-**Sentential Forms (`Term`):** To preserve structural attributes like nesting, repetition, and modulation, the sentential forms are stored in a recursive tree data type called `Term`:
+####  **Sentential Forms (`Term`):** 
+
+To preserve structural attributes like nesting, repetition, and modulation, the sentential forms are stored in a recursive tree data type called `Term`:
 
 
 ```haskell
