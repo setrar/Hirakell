@@ -1,3 +1,6 @@
+
+<image src=images/DrumMUI.png width=50% height=50% > </image>
+
 The GLUT error is a macOS-specific issue where GUI operations (like opening a window) need to run on the main thread. This is common when running GUI applications from GHCi on macOS.
 
 ## Solution 1: Use the Compiled Executable (Recommended)
