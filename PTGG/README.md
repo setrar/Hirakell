@@ -4,7 +4,7 @@ The details of the Haskell implementation and the concept of **Chord Spaces** as
 
 The Haskell implementation relies on functional concepts, custom data structures, and state management via a custom monad to stochastically generate music.
 
-#### **Core Data Types:** 
+#### 🎼 **Core Data Types:** 
 
 The grammar represents basic chord symbols (`CType`) and key changes/modulations (`MType`) based purely on scale degrees (written as uppercase Roman numerals to simplify the rule set).
 
@@ -19,7 +19,7 @@ data MType = M2 | M3 | M4 | M5 | M6 | M7
 ```
 
 
-####  **Sentential Forms (`Term`):** 
+####  ℹ️ **Sentential Forms (`Term`):** 
 
 To preserve structural attributes like nesting, repetition, and modulation, the sentential forms are stored in a recursive tree data type called `Term`:
 
@@ -43,7 +43,9 @@ data Term = NT Chord
 
 
 
-**Production Rules as Functions:** Because rules are parameterized by duration (`Dur`), they are implemented directly as functions mapping a duration to a `Term`:
+#### 📏 **Production Rules as Functions:** 
+
+Because rules are parameterized by duration (`Dur`), they are implemented directly as functions mapping a duration to a `Term`:
 
 
 ```haskell
@@ -56,8 +58,9 @@ type RuleFun = Dur -> Term
 This functional paradigm allows rules to include **conditional logic**. For instance, a rule can dynamically choose a progression template based on whether the incoming duration is above or below a threshold (`durLimit`), seamlessly controlling the rhythmic density of the piece within the rule set itself.
 
 
-* 
-**The `Prog` Monad:** Since algorithmic composition requires making random choices based on rule probabilities, a custom State monad (`Prog`) threads a random number generator (`StdGen`) safely through the evaluation steps:
+#### ♦️ **The `Prog` Monad:** 
+
+Since algorithmic composition requires making random choices based on rule probabilities, a custom State monad (`Prog`) threads a random number generator (`StdGen`) safely through the evaluation steps:
 
 
 ```haskell
@@ -69,8 +72,7 @@ newtype Prog a = Prog (StdGen -> (StdGen, a))
 Leveraging Haskell’s **lazy evaluation**, the system feeds a monadic parallel production function into an infinite loop function (`iter`), generating a lazy list of structural iterations that are evaluated only as deep as needed.
 
 
-* 
-**The `expand` Stage:** Before the abstract structure can be translated into sound, a function sweeps the `Term` tree and expands the `Let` expressions, substituting `Var` terms with their bound structures under strict lexical scope.
+#### ✴️ **The `expand` Stage:** Before the abstract structure can be translated into sound, a function sweeps the `Term` tree and expands the `Let` expressions, substituting `Var` terms with their bound structures under strict lexical scope.
 
 
 
