@@ -37,10 +37,7 @@ data Term = NT Chord
 |`NT` | represents a non-terminal chord.
 | `S` | represents a sequence of terms.
 | `Mod` | marks a section shifted to a different key.
-
-
-* 
-`Let` and `Var` implement functional variable bindings (lexical scoping) to allow different sections of a graph grammar to point back to the same musical phrase, enabling exact structural repetitions like an **AABA** form.
+| `Let` and `Var` | implement functional variable bindings (lexical scoping) to allow different sections of a graph grammar to point back to the same musical phrase, enabling exact structural repetitions like an **AABA** form.
 
 
 
