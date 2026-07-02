@@ -32,7 +32,7 @@ data Term = NT Chord
 ```
 
 
-| | | 
+| Term |  Meaning | 
 |-|-|
 |`NT` | represents a non-terminal chord.
 | `S` | represents a sequence of terms.
@@ -41,8 +41,6 @@ data Term = NT Chord
 
 
 
-
-* 
 **Production Rules as Functions:** Because rules are parameterized by duration (`Dur`), they are implemented directly as functions mapping a duration to a `Term`:
 
 
