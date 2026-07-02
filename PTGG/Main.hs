@@ -1,7 +1,11 @@
+{- HLINT ignore "Use camelCase" -}
+{- HLINT ignore "Use tuple-section" -}
 module Main where
 
+import Control.Monad.State
 import Data.List (nub, sort)
 import System.Random
+import Data.Maybe (fromMaybe)
 
 ------------------------------------------------------------------------
 -- 1. STRUCTURAL DATA TYPES & ALPHABET
@@ -40,33 +44,20 @@ type RuleFun = Dur -> Term
 -- 2. THE PROG MONAD (FOR RANDOM THREADING)
 ------------------------------------------------------------------------
 
--- Custom State-like Monad to thread standard random generators
-newtype Prog a = Prog (StdGen -> (StdGen, a))
+-- No newtype, no instance boilerplate, no deriving required
+type Prog a = State StdGen a
 
-instance Functor Prog where
-  fmap f (Prog p) = Prog (\s -> let (s', a) = p s in (s', f a))
-
-instance Applicative Prog where
-  pure a = Prog (\s -> (s, a))
-  (Prog pf) <*> (Prog pa) = Prog (\s ->
-    let (s', f)  = pf s
-        (s'', a) = pa s'
-    in (s'', f a))
-
-instance Monad Prog where
-  return = pure
-  Prog p >>= f = Prog (\s ->
-    let (s', a) = p s
-        Prog fA = f a
-    in fA s')
-
--- Domain-specific operation to fetch a random bound probability
+-- Fetching a random probability uses clean, native monadic actions
 getRand :: Prog Prob
-getRand = Prog (\g -> let (r, g') = randomR (0.0, 1.0) g in (g', r))
+getRand = do
+  rng <- get
+  let (r, rng') = randomR (0.0, 1.0) rng
+  put rng'
+  return r
 
 -- Running wrapper to unveil evaluation contents
 runP :: Prog a -> StdGen -> a
-runP (Prog f) g = snd (f g)
+runP = evalState
 
 ------------------------------------------------------------------------
 -- 3. ALGORITHMIC STOCHASTIC UPDATE RULES
@@ -102,7 +93,7 @@ update rules t = case t of
 
 -- Helper function iterating monadic functions to structural limits
 iter :: Monad m => (a -> m a) -> a -> m [a]
-iter f a = do 
+iter f a = do
   a' <- f a
   as <- iter f a'
   return (a : as)
@@ -119,7 +110,7 @@ gen rules i s t = runP (iter (update rules) t) (mkStdGen s) !! i
 expand :: [(Var, Term)] -> Term -> Term
 expand env t = case t of
   Let x a expTerm -> expand ((x, expand env a) : env) expTerm
-  Var x           -> maybe (error (x ++ " is undefined")) id (lookup x env)
+  Var x -> fromMaybe (error (x ++ " is undefined")) (lookup x env)
   S s             -> S (map (expand env) s)
   Mod m s         -> Mod m (expand env s)
   x               -> x
@@ -140,8 +131,8 @@ opcEq a b = f a == f b
 -- Custom quotient space slash-operator (S // R mapping)
 (//) :: (Eq a) => [a] -> EqRel a -> QSpace a
 [] // _ = []
-(x:xs) // r = let classX = filter (\y -> r x y) (x:xs)
-                  rest   = filter (\y -> not (r x y)) xs
+(x:xs) // r = let classX = filter (r x) (x:xs)
+                  rest   = filter (not . r x) xs
               in classX : (rest // r)
 
 ------------------------------------------------------------------------
@@ -149,17 +140,17 @@ opcEq a b = f a == f b
 ------------------------------------------------------------------------
 
 -- Mock shorthand values representing primitive rule functions
-v_rule, i_rule, ii_rule :: RuleFun
-v_rule d  = NT (Chord d V)
-i_rule d  = NT (Chord d I)
-ii_rule d = NT (Chord d II)
+vRule, iRule, iiRule :: RuleFun
+vRule d  = NT (Chord d V)
+iRule d  = NT (Chord d I)
+iiRule d = NT (Chord d II)
 
 -- Sample test grammar profile (with complete rules for all generated chords)
 sampleRules :: [Rule]
-sampleRules = 
-  [ (I, 1.0)  :-> (\t -> S [ii_rule (t/2), v_rule (t/2)])
-  , (V, 0.5)  :-> (\t -> S [NT (Chord (t/2) IV), v_rule (t/2)])
-  , (V, 0.5)  :-> (\t -> v_rule t)
+sampleRules =
+  [ (I, 1.0)  :-> (\t -> S [iiRule (t/2), vRule (t/2)])
+  , (V, 0.5)  :-> (\t -> S [NT (Chord (t/2) IV), vRule (t/2)])
+  , (V, 0.5)  :-> vRule
   , (II, 1.0) :-> (\t -> NT (Chord t II)) -- Base case for II
   , (IV, 1.0) :-> (\t -> NT (Chord t IV)) -- Base case for IV
   ]
@@ -168,7 +159,7 @@ main :: IO ()
 main = do
   -- Step 1: Start with a whole note Tonic chord
   let inputStart = NT (Chord 1.0 I)
-  
+
   -- Step 2: Generate progression trees via the randomized Monad pipeline
   let generatedTree = gen sampleRules 2 42 inputStart
   putStrLn "--- 1. Generated Graph Grammar AST Structure ---"
@@ -183,7 +174,7 @@ main = do
   putStrLn "\n--- 3. Testing Pitch Space Equivalence (Chord Spaces) ---"
   let cMajorTriad   = [0, 4, 7]        -- C, E, G
       cMajorVoicing = [48, 52, 55, 60] -- Dynamic multidimensional variant
-  
+
   if opcEq cMajorTriad cMajorVoicing
     then putStrLn "Success: The alternative voice belongs to the abstract C Major Chord Space!"
     else putStrLn "Failed: Voicings did not mathematically match structural criteria."
