@@ -97,3 +97,46 @@ The compiler literally rewrites it behind the scenes into the `flatMap` chain sh
 > **Bottom Line:** Monads are just a programmable way to say, *"Hey, do step A, pass the result to step B, and let the container handle the plumbing (errors, async waiting, etc.) in secret."*
 
 Which specific Monad were you working with recently in your Scala code? (`Option`, `Future`, `Either`, or something else?)
+
+---
+
+In Haskell, **`Just`** is a data constructor for the **`Maybe`** type.
+
+To understand `Just`, you have to look at how `Maybe` is defined in Haskell:
+
+```haskell
+data Maybe a = Nothing | Just a
+
+```
+
+This means that a `Maybe` value can only ever be one of two things:
+
+1. **`Nothing`**: Represents the absence of a value (equivalent to `null`, `None`, or an empty state).
+2. **`Just a`**: Represents the presence of a value, where `a` is the actual data wrapped inside.
+
+---
+
+### The Scala Equivalent
+
+If you are coming from Scala, here is the exact 1:1 translation:
+
+* **`Maybe`** in Haskell is **`Option`** in Scala.
+* **`Just`** in Haskell is **`Some`** in Scala.
+* **`Nothing`** in Haskell is **`None`** in Scala.
+
+So when you write `Just 20` in Haskell, it is identical to writing `Some(20)` in Scala.
+
+---
+
+### Why do we need it?
+
+Haskell doesn't have `null` values. If a function might fail or return nothing (like dividing by zero, or looking up a user that doesn't exist), it *must* return a `Maybe` type.
+
+Because Haskell enforces type safety, you can't accidentally use a missing value. You are forced to unwrap the `Just` to get to the data inside, usually using pattern matching:
+
+```haskell
+sayHello :: Maybe String -> String
+sayHello (Just name) = "Hello, " ++ name
+sayHello Nothing     = "Who goes there?"
+
+```
