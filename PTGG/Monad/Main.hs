@@ -7,6 +7,7 @@ result :: Maybe Int
 result = Just 20 >>= half >>= half >>= half
 -- Just 20 -> Just 10 -> Just 5 -> Nothing (because 5 is odd)
 
+--- do notation, which is syntactic sugar for the bind operator
 routine :: Maybe Int
 routine = do
     x <- Just 20
