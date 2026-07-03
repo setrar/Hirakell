@@ -35,7 +35,7 @@ data Term = NT Chord
 
 
 | Term |  Meaning | 
-|-|-|
+|:-|-|
 |`NT` | represents a non-terminal chord.
 | `S` | represents a sequence of terms.
 | `Mod` | marks a section shifted to a different key.
