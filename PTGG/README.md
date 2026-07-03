@@ -82,35 +82,24 @@ Leveraging Haskell’s **lazy evaluation**, the system feeds a monadic parallel 
 
 Once an abstract sequence of Roman numerals is settled, the system moves from "structural generation" to "musical interpretation" using **Chord Spaces**. A chord space groups distinct chords together via mathematical equivalence relations (reflexive, symmetric, transitive) to simplify the pathfinding required for music composition.
 
-* 
-**Equivalence Relations Used:** The system implements a generic boolean equivalence check (`EqRel a = a -> a -> Bool`) and applies it to lists of integers representing pitch values (e.g., $C=0, C\sharp=1$, etc.). It tracks four primary relations:
+- [ ] **Equivalence Relations Used:** The system implements a generic boolean equivalence check (`EqRel a = a -> a -> Bool`) and applies it to lists of integers representing pitch values (e.g., $C=0, C\sharp=1$, etc.). 
 
+It tracks four primary relations:
 
-* 
-**Octave (O):** Chords are equivalent if they share the exact same vectors of pitch classes.
-
-
-* 
-**Permutation (P):** Chords share the same multisets of pitches, meaning the notes are identical but rearranged across voices.
-
-
-* 
-**Transposition (T):** Chords share the same intervallic structure of pitches.
-
-
-* 
-**Cardinality (C):** Relates chords with different numbers of voices.
+|  | |
+|:-|-|
+| **Octave (O):**        | Chords are equivalent if they share the exact same vectors of pitch classes.
+| **Permutation (P):**   | Chords share the same multisets of pitches, meaning the notes are identical but rearranged across voices.
+| **Transposition (T):** | Chords share the same intervallic structure of pitches.
+| **Cardinality (C):**   | Relates chords with different numbers of voices.
 
 
 
 
-* **Combining Relations (OPT and OPC):**
-* 
-**OPT-equivalence** relates chords sharing the same intervallic pitch-class structures, which essentially defines standard chord quality (e.g., major vs. minor).
+- [ ] **Combining Relations (OPT and OPC):**
 
-
-* 
-**OPC-equivalence** tests if two chords share the exact same raw set of pitch classes regardless of voice count or order. This produces a finite, compact quotient space subset that is easy to navigate computationally:
+- **OPT-equivalence** relates chords sharing the same intervallic pitch-class structures, which essentially defines standard chord quality (e.g., major vs. minor).
+- **OPC-equivalence** tests if two chords share the exact same raw set of pitch classes regardless of voice count or order. This produces a finite, compact quotient space subset that is easy to navigate computationally:
 
 
 ```haskell
