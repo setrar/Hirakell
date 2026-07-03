@@ -35,7 +35,7 @@ data Term = NT Chord
 
 
 | Term |  Meaning | 
-|-|-|
+|:-|-|
 |`NT` | represents a non-terminal chord.
 | `S` | represents a sequence of terms.
 | `Mod` | marks a section shifted to a different key.
@@ -82,35 +82,24 @@ Leveraging Haskell’s **lazy evaluation**, the system feeds a monadic parallel 
 
 Once an abstract sequence of Roman numerals is settled, the system moves from "structural generation" to "musical interpretation" using **Chord Spaces**. A chord space groups distinct chords together via mathematical equivalence relations (reflexive, symmetric, transitive) to simplify the pathfinding required for music composition.
 
-* 
-**Equivalence Relations Used:** The system implements a generic boolean equivalence check (`EqRel a = a -> a -> Bool`) and applies it to lists of integers representing pitch values (e.g., $C=0, C\sharp=1$, etc.). It tracks four primary relations:
+- [ ] **Equivalence Relations Used:** The system implements a generic boolean equivalence check (`EqRel a = a -> a -> Bool`) and applies it to lists of integers representing pitch values (e.g., $C=0, C\sharp=1$, etc.). 
 
+It tracks four primary relations:
 
-* 
-**Octave (O):** Chords are equivalent if they share the exact same vectors of pitch classes.
-
-
-* 
-**Permutation (P):** Chords share the same multisets of pitches, meaning the notes are identical but rearranged across voices.
-
-
-* 
-**Transposition (T):** Chords share the same intervallic structure of pitches.
-
-
-* 
-**Cardinality (C):** Relates chords with different numbers of voices.
+|  | |
+|:-|-|
+| **Octave (O):**        | Chords are equivalent if they share the exact same vectors of pitch classes.
+| **Permutation (P):**   | Chords share the same multisets of pitches, meaning the notes are identical but rearranged across voices.
+| **Transposition (T):** | Chords share the same intervallic structure of pitches.
+| **Cardinality (C):**   | Relates chords with different numbers of voices.
 
 
 
 
-* **Combining Relations (OPT and OPC):**
-* 
-**OPT-equivalence** relates chords sharing the same intervallic pitch-class structures, which essentially defines standard chord quality (e.g., major vs. minor).
+- [ ] **Combining Relations (OPT and OPC):**
 
-
-* 
-**OPC-equivalence** tests if two chords share the exact same raw set of pitch classes regardless of voice count or order. This produces a finite, compact quotient space subset that is easy to navigate computationally:
+- **OPT-equivalence** relates chords sharing the same intervallic pitch-class structures, which essentially defines standard chord quality (e.g., major vs. minor).
+- **OPC-equivalence** tests if two chords share the exact same raw set of pitch classes regardless of voice count or order. This produces a finite, compact quotient space subset that is easy to navigate computationally:
 
 
 ```haskell
@@ -120,11 +109,7 @@ opcEq a b = f a == f b
 
 ```
 
-
-
-
-* 
-**Traversing Abstract to Concrete:** Mapping abstract Roman numerals to performable notes becomes a constrained pathfinding problem:
+- [ ] **Traversing Abstract to Concrete:** Mapping abstract Roman numerals to performable notes becomes a constrained pathfinding problem:
 
 
 1. The abstract Roman numerals are mapped onto simple base triads matching their current key and modulation block (e.g., a `V` chord in C major maps to the pitch classes of G major: `(2, 7, 11)`).
@@ -138,8 +123,7 @@ opcEq a b = f a == f b
 
 
 
-* 
-**Jazz Spaces Add-on:** To handle complex styles, a specialized "jazz space" tags chords with their musical modal context (such as the Dorian mode for a `II` chord in a major key). Instead of mapping to a simple triad, it dynamically matches a Roman numeral to several possible 4-voice seventh chords (using either the root-3rd-5th-7th or 2nd-3rd-5th-7th intervals of that mode). These block collections are subsequently passed through the OPC-space mechanism to spread them out into diverse, fluid voicings.
+- [ ] **Jazz Spaces Add-on:** To handle complex styles, a specialized "jazz space" tags chords with their musical modal context (such as the Dorian mode for a `II` chord in a major key). Instead of mapping to a simple triad, it dynamically matches a Roman numeral to several possible 4-voice seventh chords (using either the root-3rd-5th-7th or 2nd-3rd-5th-7th intervals of that mode). These block collections are subsequently passed through the OPC-space mechanism to spread them out into diverse, fluid voicings.
 
 ---
 
