@@ -44,7 +44,7 @@ alto = instrument ChoirAahs $ line [
 -- 3. TENOR (Tenor Voice)
 -- ==========================================
 tenor :: Music Pitch
-tenor = instrument VoiceOohs $ line [
+tenor = instrument ChoirAahs $ line [
     -- Verse 1
     c 4 en, b 3 sn, a 3 qn, a 3 en, a 3 en, c 4 qn, c 4 qn, b 3 en, b 3 sn, b 3 qn,
     d 4 en, c 4 sn, b 3 qn, gs 3 qn, b 3 qn, a 3 qn, g 3 qn, g 3 en, g 3 sn, e 3 qn,
@@ -61,7 +61,7 @@ tenor = instrument VoiceOohs $ line [
 -- 4. BASS (Bass Voice)
 -- ==========================================
 bass :: Music Pitch
-bass = instrument VoiceOohs $ line [
+bass = instrument ChoirAahs $ line [
     -- Verse 1
     f 3 en, f 3 sn, f 3 qn, f 3 en, f 3 en, f 3 qn, f 3 qn, c 3 en, c 3 sn, c 3 qn,
     g 3 en, f 3 sn, e 3 qn, e 3 qn, a 3 qn, d 3 qn, g 3 qn, g 3 en, g 3 sn, c 3 qn,
