@@ -312,3 +312,36 @@ main = writeMidi "hymn488_satb.mid" fullHymn
 
 * **`instrument` Assignment:** `ChoirAahs` is given to Soprano/Alto, and `VoiceOohs` is given to Tenor/Bass. This maps to the respective General MIDI voice patches (Program #53 and #54), distinguishing the parts nicely.
 * **`writeMidi` Export:** Changed `play` to `writeMidi` in `main`. When you run `main`, it will output a balanced `.mid` file named `hymn488_satb.mid` into your working directory with the track layers preserved.
+
+# 📚 References
+
+### 1. The Dot (`.l`)
+
+The dot **splits a beat in half**. It does not mean a quarter note (`qn`).
+
+* A standalone note like `l` is a quarter note (`qn`).
+* When you see a dot before a note, like `.l`, it means it is an **eighth note (`en`)** occupying the second half of a split beat.
+
+### 2. The Comma (`,l`)
+
+The comma is used for **sixteenth notes (`sn`)**. You are exactly right about the length here!
+
+* However, there is a catch on this specific sheet music: a comma placed *after* or *below* a note (like `l,` or `s,`) is also used in Sol-fa notation to mean **one octave lower**.
+
+---
+
+### Tonic Sol-fa to Euterpea Cheat Sheet
+
+| Sol-fa Symbol | What it means musically | Euterpea Equivalent |
+| --- | --- | --- |
+| `l` | Standalone note (1 full beat) | `d 5 qn` (Quarter note) |
+| `.l` | Half beat (Eighth note) | `d 5 en` (Eighth note) |
+| `,l` (or grouped `,l,`) | Quarter of a beat (Sixteenth note) | `d 5 sn` (Sixteenth note) |
+| `l,` (subscript) | Drop down **one octave** | `d 4` instead of `d 5` |
+
+### Look at your previous example:
+
+When we decoded `| s :s .l |`, it translated to:
+
+* `s` $\rightarrow$ Quarter note (`qn`)
+* `:s .l` $\rightarrow$ Two Eighth notes (`en`, `en`) because of that dot!
