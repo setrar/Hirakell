@@ -1,3 +1,58 @@
+# 488. NA INONA NA INONA HITRANGA
+
+This is a page from a Malagasy hymnal titled **"Ny Fiainana ao amin'ny Kristy"** (Life in Christ), featuring hymn number **488: *Na inona na inona hitranga*** ("Whatever Happens").
+
+The music is written using the **Tonic Sol-fa** notation system (using syllables like *do, re, mi, fa, sol, la, ti* rather than standard staff notation), which is widely used in Madagascar.
+
+Here is a full transcription of the Malagasy lyrics provided on this page:
+
+---
+
+## 488. NA INONA NA INONA HITRANGA
+
+**Verse 1**
+Na inona na inona hitranga, Jeso!
+Na ny lanitra ho manga, Jeso!
+Na ho maloka mangina, Jeso!
+Dia ho feno ny fifaliana, Jeso!
+
+**Fiverenana (Chorus)**
+Ny fotoana dia handalo, Jeso!
+Fa tsy hisy hampimalo, Jeso!
+Raha miorina ao am-poko, Jeso!
+Ilay fitiavanao inoako, Jeso!
+
+---
+
+**Verse 2**
+Raha jereko ny andro lasa, Jeso!
+Tao ny tsiky, tao ny ratra, Jeso!
+Nefa Hianao, Ilay Mpampahery, Jeso!
+No nambomba sy nijery, Jeso!
+Ny fotoana, sns.
+
+---
+
+**Verse 3**
+Ny ho avy antenaiko, Jeso!
+Mbola ho fifalian' ny saiko, Jeso!
+Ny hasasarako hisava, Jeso!
+Ny harivako hazava, Jeso!
+Ny fotoana, sns.
+
+---
+
+### Key Notes & Context
+
+* **Composer/Author:** G. Andriamanantena (credited on both sides above the music).
+* **Musical Key:** Do dia F 4/4 (Key of F Major, 4/4 time signature).
+* **Meter:** 10.10.10.10. D
+* **"sns."** at the end of verses 2 and 3 stands for *sy ny sisa*, which means "etc." indicating that the chorus (*Fiverenana*) should be repeated there.
+
+---
+
+
+
 Here is the complete transcription of the **Soprano (melody) line** for the hymn *Na inona na inona hitranga* from the file **4cc21b46-8354-4d83-8d60-0871b4e28252**, translated into **Euterpea** syntax.
 
 Since the score is in **F Major** (`Do dia F`), the Tonic Sol-fa syllables map to the following pitches:
