@@ -1,5 +1,7 @@
 # 488. NA INONA NA INONA HITRANGA
 
+<image src=images/488.png width=50% height=50% > </image>
+
 This is a page from a Malagasy hymnal titled **"Ny Fiainana ao amin'ny Kristy"** (Life in Christ), featuring hymn number **488: *Na inona na inona hitranga*** ("Whatever Happens").
 
 The music is written using the **Tonic Sol-fa** notation system (using syllables like *do, re, mi, fa, sol, la, ti* rather than standard staff notation), which is widely used in Madagascar.
