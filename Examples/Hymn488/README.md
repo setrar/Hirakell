@@ -4,7 +4,7 @@
 
 This is a page from a Malagasy hymnal titled **"Ny Fiainana ao amin'ny Kristy"** (Life in Christ), featuring hymn number **488: *Na inona na inona hitranga*** ("Whatever Happens").
 
-The music is written using the **Tonic Sol-fa** notation system (using syllables like *do, re, mi, fa, sol, la, ti* rather than standard staff notation), which is widely used in Madagascar.
+The music is written using the [**Tonic Sol-fa** notation system](https://en.wikipedia.org/wiki/Tonic_sol-fa) (using syllables like *do, re, mi, fa, sol, la, ti* rather than standard staff notation), which is widely used in Madagascar.
 
 Here is a full transcription of the Malagasy lyrics provided on this page:
 
