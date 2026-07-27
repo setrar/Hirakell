@@ -1,5 +1,19 @@
 # Euterpea
 
+
+For that $E\flat^{\text{maj7}}$ chord from *Someday My Prince Will Come*, your $E\flat$ Lydian scale ($E\flat, F, G, A, B\flat, C, D$) represented as a `Scale` type would be:
+
+```haskell
+ghci> -- Eb Lydian (3, 5, 7, 9, 10, 0, 2)
+ghci> ebLydian :: Scale
+ghci> ebLydian = [3, 5, 7, 9, 10, 0, 2]
+
+```
+
+### Useful GHCi inspection trick
+
+If you ever want to see what functions Euterpea provides to build or manipulate objects, you can ask GHCi to search for functions using the `Scale` type:
+
 ```ghci
 ghci> :browse Euterpea
 ```
@@ -898,3 +912,5 @@ writeWavNorm ::
 ```
 
 </details>
+
+## GHCi
