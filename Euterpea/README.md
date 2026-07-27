@@ -913,4 +913,81 @@ writeWavNorm ::
 
 </details>
 
-## GHCi
+## Haskell Lang (type and data)
+
+The distinction between `type` and `data` is one of the most fundamental concepts in Haskell. At a high level:
+
+* **`type`** creates an **alias** (a new nickname for an existing type). It doesn't create anything new under the hood.
+* **`data`** creates a **brand-new type** with its own constructors. It introduces a completely new shape of data that didn't exist before.
+
+---
+
+### 1. `type` (Type Synonyms)
+
+Think of `type` as a **label or shortcut**. It tells the compiler: *"Whenever you see X, treat it exactly like Y."*
+
+```haskell
+-- Scale is just a list of integers. They are 100% interchangeable.
+type Scale = [Int]
+type PhoneNumber = String
+
+```
+
+#### Key Characteristics:
+
+* **Zero Overhead:** It exists **only for human readability**. The compiler replaces `Scale` with `[Int]` during compilation.
+* **No New Structure:** You cannot invent new data shapes or new constructors.
+* **Interchangeable:** If a function expects a `[Int]`, you can pass a `Scale` and Haskell will not complain.
+
+```haskell
+myNotes :: [Int]
+myNotes = [0, 2, 4, 5, 7, 9, 11]
+
+-- This works because Scale AND [Int] are the exact same thing to GHC:
+myScale :: Scale
+myScale = myNotes 
+
+```
+
+---
+
+### 2. `data` (Algebraic Data Types)
+
+`data` creates a **completely new entity**. It defines a new type name *and* one or more **value constructors** (the actual tags/containers used to instantiate values).
+
+```haskell
+-- Defines a BRAND NEW type called 'Mode' with 3 possible values:
+data Mode = Dorian | Mixolydian | Lydian
+
+-- Defines a brand new 'Ensemble' container type:
+data Ensemble a = Trio a a a | Quartet a a a a
+
+```
+
+#### Key Characteristics:
+
+* **Strong Type Safety:** GHC prevents accidental mix-ups. An `Int` cannot be passed where a `Mode` is expected.
+* **Pattern Matching:** You can pattern-match on the constructors (`Dorian`, `Trio`, etc.) in functions.
+* **Custom Behavior:** You can define how the type behaves with typeclasses (`instance Functor`, `instance Show`, etc.).
+
+---
+
+### Comparison Matrix
+
+| Feature | `type` (Synonym) | `data` (New Type) |
+| --- | --- | --- |
+| **What it does** | Renames an existing type | Creates a new type from scratch |
+| **Runtime cost** | Zero (erased during compilation) | Slight memory footprint for constructors |
+| **Constructors** | None (uses existing constructors) | Has its own constructors (`Trio`, `Just`, etc.) |
+| **Type Safety** | Low (interchangeable with base type) | High (isolated by GHC) |
+| **Pattern Matching** | Matches on underlying type | Matches on its own constructors |
+
+---
+
+### When to use which?
+
+* **Use `type**` when you want to make complex type signatures easier to read without changing how the code runs (e.g., writing `type ChordProgression = [Pitch]` instead of `[(PitchClass, Octave)]`).
+* **Use `data**` when you need a distinct domain model, state machine, custom data structure, or pattern-matchable variants (e.g., `data MusicalKey = Major PitchClass | Minor PitchClass`).
+
+*(Note: Haskell also has a third keyword, `newtype`, which acts like `data` for single-constructor wrappers, but compiles away like `type` with zero performance overhead!)*
+
