@@ -991,3 +991,119 @@ data Ensemble a = Trio a a a | Quartet a a a a
 
 *(Note: Haskell also has a third keyword, `newtype`, which acts like `data` for single-constructor wrappers, but compiles away like `type` with zero performance overhead!)*
 
+## ADT (Haskell && Scala)
+
+**Yes, conceptually they are identical.** Both Haskell's `data` declaration and Scala's ADTs (Algebraic Data Types) implement the exact same core concept from type theory: combining **Sum types** (OR) and **Product types** (AND) into strongly typed data models.
+
+However, because Scala is an object-oriented/functional hybrid (JVM-based) while Haskell is a pure functional language, their underlying mechanics and syntax look a bit different.
+
+---
+
+### Comparison: Haskell vs. Scala ADTs
+
+Here is how the two main building blocks of ADTs map directly across both languages:
+
+#### 1. Sum Types ("OR" - Discriminated Unions)
+
+A value can be **Type A** *OR* **Type B** *OR* **Type C**.
+
+* **Haskell:**
+```haskell
+data Mode = Dorian | Mixolydian | Lydian
+
+```
+
+
+* **Scala 3 (using `enum`):**
+```scala
+enum Mode:
+  case Dorian, Mixolydian, Lydian
+
+```
+
+
+* **Scala 2 (using `sealed trait`):**
+```scala
+sealed trait Mode
+case object Dorian extends Mode
+case object Mixolydian extends Mode
+case object Lydian extends Mode
+
+```
+
+
+
+---
+
+#### 2. Product Types ("AND" - Tuples / Records)
+
+A value contains **Type A** *AND* **Type B**.
+
+* **Haskell:**
+```haskell
+data Pitch = Pitch PitchClass Octave
+-- or with record syntax:
+data Pitch = Pitch { pc :: PitchClass, oct :: Int }
+
+```
+
+
+* **Scala (Case Classes):**
+```scala
+case class Pitch(pc: PitchClass, oct: Int)
+
+```
+
+
+
+---
+
+#### 3. Mixed Algebraic Structures (Sum + Product together)
+
+This is where the power of ADTs really shines—a type that can be one of several variants, where each variant holds different payload types.
+
+* **Haskell:**
+```haskell
+data Ensemble a 
+  = Solo a 
+  | Duo a a 
+  | Trio a a a
+
+```
+
+
+* **Scala 3:**
+```scala
+enum Ensemble[+A]:
+  case Solo(a1: A)
+  case Duo(a1: A, a2: A)
+  case Trio(a1: A, a2: A, a3: A)
+
+```
+
+
+* **Scala 2:**
+```scala
+sealed trait Ensemble[+A]
+case class Solo[A](a1: A) extends Ensemble[A]
+case class Duo[A](a1: A, a2: A) extends Ensemble[A]
+case class Trio[A](a1: A, a2: A, a3: A) extends Ensemble[A]
+
+```
+
+
+
+---
+
+### Key Differences Under the Hood
+
+| Feature | Haskell `data` | Scala ADT |
+| --- | --- | --- |
+| **Class Hierarchy** | No class hierarchy. Constructors belong directly to the type. | Built on top of JVM OO inheritance (`sealed trait` + `case class` or `enum`). |
+| **Exhaustiveness Checking** | The compiler warns if your `case` or pattern match skips a constructor. | Same! `sealed` or `enum` forces compiler exhaustiveness checks in pattern matching. |
+| **Nullability** | No `null`. Optional values use `Maybe a`. | Avoids `null` idiomatically using `Option[A]`. |
+| **Pattern Matching Syntax** | `case x of Trio a b c -> ...` | `x match { case Trio(a, b, c) => ... }` |
+
+### Bottom Line
+
+If you know how to work with `case class` and `sealed trait` (or Scala 3 `enum`) in Scala, you already know the design philosophy behind Haskell's `data`. The primary mental shift is that Haskell drops all object-oriented class inheritance overhead and treats data as purely structural.
