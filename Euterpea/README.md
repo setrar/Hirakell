@@ -1,8 +1,8 @@
 # Euterpea
 
-ghci> ---------------
+```ghci
 ghci> :browse Euterpea
-
+```
 <details><summary>🎋 </summary>
 
 ```Haskell
