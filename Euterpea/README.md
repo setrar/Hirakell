@@ -1107,3 +1107,54 @@ case class Trio[A](a1: A, a2: A, a3: A) extends Ensemble[A]
 ### Bottom Line
 
 If you know how to work with `case class` and `sealed trait` (or Scala 3 `enum`) in Scala, you already know the design philosophy behind Haskell's `data`. The primary mental shift is that Haskell drops all object-oriented class inheritance overhead and treats data as purely structural.
+
+---
+
+## 🫧 newtype
+
+If **`type`** is a simple *alias/nickname* (completely interchangeable with what it wraps), then **`newtype`** is a **zero-cost wrapper** that creates a **distinct type** at compile-time while disappearing completely at runtime.
+
+---
+
+### The Three Types Side-by-Side
+
+| Keyword | What it creates | Compile-Time Behavior | Runtime Behavior | Performance Overhead |
+| --- | --- | --- | --- | --- |
+| **`type`** | Synonym / Alias | Compiler treats `A` and `B` as the **exact same thing**. | Erased. | Zero |
+| **`newtype`** | Strict Type Wrapper | Compiler treats `A` and `B` as **completely different types**. | Erased! (Unwrapped into raw value) | **Zero** |
+| **`data`** | Brand-new data structure | Distinct type. | Keeps data constructor and memory pointers. | Has memory/pointer overhead |
+
+---
+
+### Analyzing Your Code Example
+
+Look at the definition you pasted:
+
+```haskell
+type OutputDeviceID :: *
+newtype OutputDeviceID
+  = Euterpea.IO.MIDI.MidiIO.OutputDeviceID PortMidi-0.2.0.0:Sound.PortMidi.DeviceID
+
+```
+
+#### What is actually happening here?
+
+1. **Under the Hood (`PortMidi.DeviceID`):**
+`PortMidi` represents audio output devices as plain numbers (essentially `Int`).
+2. **Why didn't Euterpea just use `type OutputDeviceID = Int`?**
+If Euterpea used `type`, you could accidentally pass an `InputDeviceID` (also an `Int`), a volume level (`Int`), or a note pitch (`Int`) into a function expecting an `OutputDeviceID`—and GHC wouldn't warn you!
+3. **Why `newtype` is the perfect solution here:**
+By wrapping `DeviceID` inside `newtype OutputDeviceID = OutputDeviceID DeviceID`:
+* **Compile Time Safety:** GHC **prevents** you from mixing up an `OutputDeviceID` with an `InputDeviceID` or a raw `Int`.
+* **Custom Instances:** Euterpea can write custom typeclass implementations (like `Show`, `Eq`, or `MidiIO`) specifically for `OutputDeviceID` without affecting regular integers.
+* **Zero Runtime Cost:** When your Haskell program is compiled to machine code, the `OutputDeviceID` wrapper is completely stripped away. In memory, it executes as a plain integer with zero performance overhead!
+
+
+
+---
+
+### Rule of Thumb
+
+* Use **`type`** when you want a temporary shortcut to make long signatures easier to read (e.g., `type Scale = [PCNum]`).
+* Use **`newtype`** when you want to wrap an existing single type to add type-safety or custom instances without paying a performance penalty (e.g., `newtype OutputDeviceID = OutputDeviceID DeviceID`).
+* Use **`data`** when you need multiple fields or multiple variants (e.g., `data Mode = Major | Minor` or `data Pitch = Pitch PitchClass Octave`).
