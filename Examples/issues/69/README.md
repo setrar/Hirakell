@@ -108,3 +108,4 @@ You should hear:
 
 This example uses the **current Euterpea API** (`delayLine`) rather than the older `delay`-based implementation that no longer exists in your installed version.
 
+<image src=images/delay.png width=50% height=50% > </image>
