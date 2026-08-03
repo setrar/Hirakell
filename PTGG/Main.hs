@@ -119,20 +119,20 @@ collectChords (Var _)          = []
 compileToMIDIEvents :: [(Dur, CType)] -> [MIDIEvent]
 compileToMIDIEvents [] = []
 compileToMIDIEvents ((dur, ctype):cs) =
-  let ticks = round (dur * 960 * 4) -- 960 ticks per quarter note
+  let ticks = round (dur * 960) -- 960 ticks per whole note (1/1 duration = 960 ticks)
   in case chordToPitches ctype of
     [] -> compileToMIDIEvents cs -- Fallback safety case
     (p:ps) ->
       let noteOns  = (0, True, p) : map (\pitch -> (0, True, pitch)) ps
           noteOffs = (ticks, False, p) : map (\pitch -> (0, False, pitch)) ps
       in noteOns ++ noteOffs ++ compileToMIDIEvents cs
-      
--- Encodes integer time frames into variable length quantities required by the MIDI protocol
+
+-- Standard Spec-Compliant MIDI Variable-Length Quantity (VLQ) Encoder
 toVarLen :: Int -> [Word8]
-toVarLen val = reverse (encode (val .&. 0x7F) (val `shiftR` 7))
+toVarLen n = go (n .&. 0x7F) (n `shiftR` 7)
   where
-    encode acc 0 = [fromIntegral acc]
-    encode acc n = fromIntegral (acc .|. 0x80) : encode ((n .&. 0x7F) .|. 0x80) (n `shiftR` 7)
+    go acc 0 = [fromIntegral acc]
+    go acc rest = go ((rest .&. 0x7F) .|. 0x80) (rest `shiftR` 7) ++ [fromIntegral acc]
 
 -- Turns raw event descriptions into exact format-0 stream hex values
 buildTrackBytes :: [MIDIEvent] -> [Word8]
@@ -148,15 +148,28 @@ writeMIDIFile path term = do
       events     = compileToMIDIEvents chords
       trackBytes = buildTrackBytes events
       len        = fromIntegral (length trackBytes) :: Word32
-      lenBytes   = [fromIntegral (len `shiftR` 24), fromIntegral (len `shiftR` 16), 
-                    fromIntegral (len `shiftR` 8), fromIntegral len]
       
-      -- Standard MIDI Header Architecture (120 BPM Format 0 file)
-      header = [ 0x4D, 0x54, 0x68, 0x64, 0x00, 0x00, 0x00, 0x06, 0x00, 0x00, 0x00, 0x01, 0x03, 0xC0
-               , 0x4D, 0x54, 0x72, 0x6B] ++ lenBytes
-  B.writeFile path (B.pack (header ++ trackBytes))
-  putStrLn $ "Successfully compiled composition to: " ++ path
-
+      -- Convert 32-bit track length to 4 big-endian bytes
+      lenBytes   = [ fromIntegral (len `shiftR` 24)
+                   , fromIntegral (len `shiftR` 16)
+                   , fromIntegral (len `shiftR` 8)
+                   , fromIntegral len ]
+      
+      -- 1. MThd Header Chunk (14 bytes):
+      -- 'M''T''h''d' | Header Length (6) | Format 0 | 1 Track | Division (384 ticks/qtr note = 0x0180)
+      mthdChunk = [ 0x4D, 0x54, 0x68, 0x64
+                  , 0x00, 0x00, 0x00, 0x06
+                  , 0x00, 0x00
+                  , 0x00, 0x01
+                  , 0x01, 0x80 ]
+                  
+      -- 2. MTrk Track Chunk:
+      -- 'M''T''r''k' | 4-byte Track Byte Length | Track Data
+      mtrkChunk = [ 0x4D, 0x54, 0x72, 0x6B ] ++ lenBytes ++ trackBytes
+      
+  B.writeFile path (B.pack (mthdChunk ++ mtrkChunk))
+  putStrLn $ "Successfully compiled composition to valid MIDI: " ++ path
+  
 ------------------------------------------------------------------------
 -- 5. RUNNABLE GRAMMAR & REPL MAIN
 ------------------------------------------------------------------------
