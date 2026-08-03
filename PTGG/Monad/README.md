@@ -140,3 +140,19 @@ sayHello (Just name) = "Hello, " ++ name
 sayHello Nothing     = "Who goes there?"
 
 ```
+
+## :o: Running the example
+
+### :one: Launching the `REPL`
+
+- [ ] using `GHCi`
+
+```bash
+ghci -package Euterpea -package mtl -package random -package vector -package bytestring
+```
+
+- [ ] using the `REPL` CLI
+
+```bash
+cabal repl
+```
