@@ -120,7 +120,7 @@
 >       chords           = map (map (+60)) $ -- transposition above bassline
 >                          map (\x -> [x !! 0, x !! 2, x !! 4, x !! 6]) ms -- form a simple seventh chord
 >       chordMusic       = chordsToMusic chords (gs !! 3) -- convert chords to Music with rhythm
->   in instrument AcousticBass bassMusic :=: instrument AcousticGrandPiano chordMusic 
+>   in instrument AcousticBass bassMusic :=: instrument ChorusedPiano chordMusic 
 >   where
 >     infSplit :: StdGen -> [StdGen] -- necessary to get many generators from just one
 >     infSplit g = let (g1, g2) = splitGen g in g1 : infSplit g2
