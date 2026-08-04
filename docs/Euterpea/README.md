@@ -1,6 +1,10 @@
 
 
 ```
+ghci> :i Euterpea.
+```
+
+```
 Euterpea.&&&                   Euterpea.CuePoint              Euterpea.Kleisli               Euterpea.PhraseAttribute       Euterpea.Trumpet               Euterpea.dynamicCP             Euterpea.oscDur
 Euterpea.***                   Euterpea.Custom                Euterpea.Koto                  Euterpea.Phrygian              Euterpea.Tuba                  Euterpea.e                     Euterpea.oscDurI
 Euterpea.+++                   Euterpea.CustomInstrument      Euterpea.LazyDur               Euterpea.Piccolo               Euterpea.TubularBells          Euterpea.eDur                  Euterpea.oscFixed
