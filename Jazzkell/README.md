@@ -205,7 +205,7 @@ mySong = bassPart :=: chordPart :=: soloPart
 
 ---
 
-## 🎵 **semitone**
+## 🎵 **Semitones**
 
 A **semitone** (also called a **half step**) is the smallest standard musical interval used in Western music. It represents the distance in pitch from one note to the very next adjacent note on a keyboard or fretboard.
 
