@@ -8,6 +8,8 @@ ghci -package Euterpea -package mtl -package random -package vector -package byt
 
 In **Euterpea**, General MIDI instruments are represented by the `InstrumentName` data type. Here is the complete list of all constructors available in Euterpea, grouped by family:
 
+> ghci> :info InstrumentName
+
 ### 1. Piano
 
 * `AcousticGrandPiano`
