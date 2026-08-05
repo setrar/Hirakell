@@ -7,14 +7,26 @@
 >   deriving (Eq, Show, Ord, Enum)
 
 > type PitchSpace = [AbsPitch]
-> type ScalePCs = [AbsPitch]
+> type ScalePCs   = [AbsPitch]
+> type Degree     = Int
+
+> -- 1-based indexing helper (Degree 1 = 1st element)
+> deg :: [a] -> Degree -> a
+> deg xs d = xs !! (d - 1)
+
+> -- Extract specific scale degrees using 1-based notation (e.g., [1, 3, 5, 7])
+> chordDegrees :: [Degree] -> ScalePCs -> [AbsPitch]
+> chordDegrees degrees scale = map (deg scale) degrees
 
 > cModeScalePCs :: [ScalePCs]
-> cModeScalePCs = allRots [0,2,4,5,7,9,11] 
+> cModeScalePCs = map (map semitones) (allRots [1, 3, 5, 6, 8, 10, 12])
 >   where
->     allRots x = take 7 $ iterate doRot x
+>     -- Convert 1-based semitone position (1..12) to 0-based pitch class (0..11)
+>     semitones interval = interval - 1
+>
+>     allRots x    = take 7 $ iterate doRot x
 >     doRot []     = []
->     doRot (y:ys) = map (`mod` 12) (ys ++ [y + 12])
+>     doRot (y:ys) = ys ++ [y]
 
 > choose :: StdGen -> [a] -> (StdGen, a)
 > choose g xs =
@@ -82,7 +94,7 @@
 
 > bassToMusic :: [AbsPitch] -> StdGen -> Music (AbsPitch, Volume)
 > bassToMusic [] g  = rest 0
-> bassToMusic [x] g = note wn (x, 120)
+> bassToMusic [x] g = note wn (x, 120) -- Downbeat (quarter note): Heavy accent (120)
 > bassToMusic (x1:x2:xs) g =
 >   let (r, g1) = randomR (0.0, 1.0 :: Double) g
 >       m = if r < 0.7 
@@ -90,6 +102,8 @@
 >             else if r < 0.8 
 >                    then note (3*sn) (x1, 120) :+: note (sn) (x2 + 1, 80) 
 >                    else if r < 0.9 
+>                           -- Dotted eighth note (main pitch) + 16th note (passing grace note):
+>                           -- Main note gets 120 (loud), passing note gets 80 (softer ghost note)
 >                           then note (3*sn) (x1, 120) :+: note (sn) (x1, 80) 
 >                           else note (3*sn) (x1, 120) :+: note (sn) (x2 - 1, 80)
 >   in m :+: bassToMusic (x2:xs) g1
@@ -108,18 +122,18 @@
 >   let modeList = if isMajor 
 >                    then cModeScalePCs -- using major
 >                    else drop 5 cModeScalePCs ++ take 5 cModeScalePCs -- handle minor selection
->       bassRange        = [30..50]
->       initScalePCss    = map ((cModeScalePCs !!) . fromEnum) rNums -- turn numerals into C-major modes
+>       bassRange        = [30..50] -- MIDI pitch numbers [30..50] represents the continuous frequency range from F#1 (30) up to D3 (50).
+>       initScalePCss    = map ((cModeScalePCs `deg`) . (+1) . fromEnum) rNums -- 1-based numeral mapping
 >       ms               = map (map ((`mod` 12) . (+root))) $ initScalePCss -- transpose modes based on root
->       ms0              = map (\m -> case m of (x:_) -> x; [] -> 0) ms -- get mode roots
+>       ms0              = map (`deg` 1) ms -- 1-based root degree extraction
 >       gs               = infSplit g -- set up an infinite supply of generators
->       (gsp, startPoint)= choose (gs !! 0) bassRange -- pick a general starting point for the bass
+>       (gsp, startPoint)= choose (deg gs 1) bassRange -- pick a general starting point for the bass
 >       initBassPitches0 = genBassRoots bassRange startPoint gsp ms0 -- choose measure nodes
->       bassMeasurePs    = bassGenRec bassRange (zip initBassPitches0 ms) (gs !! 1) -- gen bass pitches
->       bassMusic        = bassToMusic bassMeasurePs (gs !! 2) -- convert bass to Music with ornaments
+>       bassMeasurePs    = bassGenRec bassRange (zip initBassPitches0 ms) (deg gs 2) -- gen bass pitches
+>       bassMusic        = bassToMusic bassMeasurePs (deg gs 3) -- convert bass to Music with ornaments
 >       chords           = map (map (+60)) $ -- transposition above bassline
->                          map (\x -> [x !! 0, x !! 2, x !! 4, x !! 6]) ms -- form a simple seventh chord
->       chordMusic       = chordsToMusic chords (gs !! 3) -- convert chords to Music with rhythm
+>                          map (chordDegrees [1, 3, 5, 7]) ms -- traditional 1, 3, 5, 7 7th chord voicing
+>       chordMusic       = chordsToMusic chords (deg gs 4) -- convert chords to Music with rhythm
 >   in instrument AcousticBass bassMusic :=: instrument ChorusedPiano chordMusic 
 >   where
 >     infSplit :: StdGen -> [StdGen] -- necessary to get many generators from just one
@@ -136,6 +150,6 @@
 >   gR <- newStdGen
 >   gM <- newStdGen
 >   let allRNums  = enumFrom I
->       chordProg = map (allRNums !!) $ randomRs (0, length allRNums - 1) gR
+>       chordProg = map (allRNums `deg`) $ map (+1) $ randomRs (0, length allRNums - 1) gR
 >       m         = makeJazz homeKeyRoot majorHomeKey chordProg gM
 >   playDev 7 m
