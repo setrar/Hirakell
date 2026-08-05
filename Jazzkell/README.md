@@ -10,182 +10,150 @@ In **Euterpea**, General MIDI instruments are represented by the `InstrumentName
 
 > ghci> :info InstrumentName
 
-### 1. Piano
+```haskell
+type Message :: *
+data Message = ... | InstrumentName !String | ...
+  	-- Defined in ‘HCodecs-0.5.2:Codec.Midi’
 
-* `AcousticGrandPiano`
-* `BrightAcousticPiano`
-* `ElectricGrandPiano`
-* `HonkyTonkPiano`
-* `ElectricPiano1` *(or `RhodesPiano`)*
-* `ElectricPiano2`
-* `Harpsichord`
-* `Clavinet`
-
-### 2. Chromatic Percussion
-
-* `Celesta`
-* `Glockenspiel`
-* `MusicBox`
-* `Vibraphone`
-* `Marimba`
-* `Xylophone`
-* `TubularBells`
-* `Dulcimer`
-
-### 3. Organ
-
-* `DrawbarOrgan`
-* `PercussiveOrgan`
-* `RockOrgan`
-* `ChurchOrgan`
-* `ReedOrgan`
-* `Accordion`
-* `Harmonica`
-* `TangoAccordion`
-
-### 4. Guitar
-
-* `AcousticGuitarNylon`
-* `AcousticGuitarSteel`
-* `ElectricGuitarJazz`
-* `ElectricGuitarClean`
-* `ElectricGuitarMuted`
-* `OverdrivenGuitar`
-* `DistortionGuitar`
-* `GuitarHarmonics`
-
-### 5. Bass
-
-* `AcousticBass`
-* `ElectricBassFinger`
-* `ElectricBassPick`
-* `FretlessBass`
-* `SlapBass1`
-* `SlapBass2`
-* `SynthBass1`
-* `SynthBass2`
-
-### 6. Strings
-
-* `Violin`
-* `Viola`
-* `Cello`
-* `Contrabass`
-* `TremoloStrings`
-* `PizzicatoStrings`
-* `OrchestralHarp`
-* `Timpani`
-
-### 7. Ensemble
-
-* `StringEnsemble1`
-* `StringEnsemble2`
-* `SynthStrings1`
-* `SynthStrings2`
-* `ChoirAahs`
-* `VoiceOohs`
-* `SynthVoice`
-* `OrchestraHit`
-
-### 8. Brass
-
-* `Trumpet`
-* `Trombone`
-* `Tuba`
-* `MutedTrumpet`
-* `FrenchHorn`
-* `BrassSection`
-* `SynthBrass1`
-* `SynthBrass2`
-
-### 9. Reed
-
-* `SopranoSax`
-* `AltoSax`
-* `TenorSax`
-* `BaritoneSax`
-* `Oboe`
-* `EnglishHorn`
-* `Bassoon`
-* `Clarinet`
-
-### 10. Pipe
-
-* `Piccolo`
-* `Flute`
-* `Recorder`
-* `PanFlute`
-* `BlownBottle`
-* `Shakuhachi`
-* `Whistle`
-* `Ocarina`
-
-### 11. Synth Lead
-
-* `Lead1Square`
-* `Lead2Sawtooth`
-* `Lead3Calliope`
-* `Lead4Chiff`
-* `Lead5Charang`
-* `Lead6Voice`
-* `Lead7Fifths`
-* `Lead8BassAndLead`
-
-### 12. Synth Pad
-
-* `Pad1NewAge`
-* `Pad2Warm`
-* `Pad3Polysynth`
-* `Pad4Choir`
-* `Pad5Bowed`
-* `Pad6Metallic`
-* `Pad7Halo`
-* `Pad8Sweep`
-
-### 13. Synth Effects
-
-* `FX1Rain`
-* `FX2Soundtrack`
-* `FX3Crystal`
-* `FX4Atmosphere`
-* `FX5Brightness`
-* `FX6Goblins`
-* `FX7Echoes`
-* `FX8SciFi`
-
-### 14. Ethnic
-
-* `Sitar`
-* `Banjo`
-* `Shamisen`
-* `Koto`
-* `Kalimba`
-* `Bagpipe`
-* `Fiddle`
-* `Shanai`
-
-### 15. Percussive
-
-* `TinkleBell`
-* `Agogo`
-* `SteelDrums`
-* `Woodblock`
-* `TaikoDrum`
-* `MelodicTom`
-* `SynthDrum`
-* `ReverseCymbal`
-
-### 16. Sound Effects
-
-* `GuitarFretNoise`
-* `BreathNoise`
-* `Seashore`
-* `BirdTweet`
-* `TelephoneRing`
-* `Helicopter`
-* `Applause`
-* `Gunshot`
-
+type InstrumentName :: *
+data InstrumentName
+  = AcousticGrandPiano
+  | BrightAcousticPiano
+  | ElectricGrandPiano
+  | HonkyTonkPiano
+  | RhodesPiano
+  | ChorusedPiano
+  | Harpsichord
+  | Clavinet
+  | Celesta
+  | Glockenspiel
+  | MusicBox
+  | Vibraphone
+  | Marimba
+  | Xylophone
+  | TubularBells
+  | Dulcimer
+  | HammondOrgan
+  | PercussiveOrgan
+  | RockOrgan
+  | ChurchOrgan
+  | ReedOrgan
+  | Accordion
+  | Harmonica
+  | TangoAccordion
+  | AcousticGuitarNylon
+  | AcousticGuitarSteel
+  | ElectricGuitarJazz
+  | ElectricGuitarClean
+  | ElectricGuitarMuted
+  | OverdrivenGuitar
+  | DistortionGuitar
+  | GuitarHarmonics
+  | AcousticBass
+  | ElectricBassFingered
+  | ElectricBassPicked
+  | FretlessBass
+  | SlapBass1
+  | SlapBass2
+  | SynthBass1
+  | SynthBass2
+  | Violin
+  | Viola
+  | Cello
+  | Contrabass
+  | TremoloStrings
+  | PizzicatoStrings
+  | OrchestralHarp
+  | Timpani
+  | StringEnsemble1
+  | StringEnsemble2
+  | SynthStrings1
+  | SynthStrings2
+  | ChoirAahs
+  | VoiceOohs
+  | SynthVoice
+  | OrchestraHit
+  | Trumpet
+  | Trombone
+  | Tuba
+  | MutedTrumpet
+  | FrenchHorn
+  | BrassSection
+  | SynthBrass1
+  | SynthBrass2
+  | SopranoSax
+  | AltoSax
+  | TenorSax
+  | BaritoneSax
+  | Oboe
+  | Bassoon
+  | EnglishHorn
+  | Clarinet
+  | Piccolo
+  | Flute
+  | Recorder
+  | PanFlute
+  | BlownBottle
+  | Shakuhachi
+  | Whistle
+  | Ocarina
+  | Lead1Square
+  | Lead2Sawtooth
+  | Lead3Calliope
+  | Lead4Chiff
+  | Lead5Charang
+  | Lead6Voice
+  | Lead7Fifths
+  | Lead8BassLead
+  | Pad1NewAge
+  | Pad2Warm
+  | Pad3Polysynth
+  | Pad4Choir
+  | Pad5Bowed
+  | Pad6Metallic
+  | Pad7Halo
+  | Pad8Sweep
+  | FX1Train
+  | FX2Soundtrack
+  | FX3Crystal
+  | FX4Atmosphere
+  | FX5Brightness
+  | FX6Goblins
+  | FX7Echoes
+  | FX8SciFi
+  | Sitar
+  | Banjo
+  | Shamisen
+  | Koto
+  | Kalimba
+  | Bagpipe
+  | Fiddle
+  | Shanai
+  | TinkleBell
+  | Agogo
+  | SteelDrums
+  | Woodblock
+  | TaikoDrum
+  | MelodicDrum
+  | SynthDrum
+  | ReverseCymbal
+  | GuitarFretNoise
+  | BreathNoise
+  | Seashore
+  | BirdTweet
+  | TelephoneRing
+  | Helicopter
+  | Applause
+  | Gunshot
+  | Percussion
+  | CustomInstrument String
+  	-- Defined in ‘Euterpea.Music’
+instance [safe] Enum InstrumentName
+  -- Defined in ‘Euterpea.IO.MIDI.GeneralMidi’
+instance [safe] Eq InstrumentName -- Defined in ‘Euterpea.Music’
+instance [safe] Ord InstrumentName -- Defined in ‘Euterpea.Music’
+instance [safe] Show InstrumentName -- Defined in ‘Euterpea.Music’
+```
 ---
 
 ### Special & Percussion Names in Euterpea
