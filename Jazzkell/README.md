@@ -202,3 +202,50 @@ soloPart  = instrument TenorSax myMelody
 mySong = bassPart :=: chordPart :=: soloPart
 
 ```
+
+---
+
+## **semitone**
+
+A **semitone** (also called a **half step**) is the smallest standard musical interval used in Western music. It represents the distance in pitch from one note to the very next adjacent note on a keyboard or fretboard.
+
+---
+
+### Visualizing a Semitone
+
+* **On a Piano:** Moving from any key to the **immediately adjacent key** (black or white) is a semitone.
+* $C \rightarrow C\sharp$ (White key to the adjacent black key) = **1 semitone**
+* $E \rightarrow F$ (White key to white key, because there is no black key between them) = **1 semitone**
+
+
+* **On a Guitar:** Moving up or down by **1 fret** is a semitone.
+
+---
+
+### Semitones vs. Whole Steps
+
+* **1 Semitone (Half Step):** 1 step adjacent ($C \rightarrow C\sharp$).
+* **1 Tone / Whole Step:** 2 semitones combined ($C \rightarrow D$).
+
+---
+
+### Semitones in Pitch Class Arithmetic
+
+In digital music, MIDI, and Haskell music libraries like Euterpea, semitones are used as the basic unit of measurement for pitch classes ($0$ to $11$), where every integer increase represents **1 semitone higher**:
+
+| Note | Pitch Class / Semitone Value |
+| --- | --- |
+| **C** | 0 |
+| **C♯ / D♭** | 1 |
+| **D** | 2 |
+| **D♯ / E♭** | 3 |
+| **E** | 4 |
+| **F** | 5 |
+| **F♯ / G♭** | 6 |
+| **G** | 7 |
+| **G♯ / A♭** | 8 |
+| **A** | 9 |
+| **A♯ / B♭** | 10 |
+| **B** | 11 |
+
+Because 12 semitones make up an entire **octave**, adding 12 semitones to any note doubles its fundamental frequency and lands on the exact same note name one octave higher ($C4 = 60 \rightarrow C5 = 72$).
