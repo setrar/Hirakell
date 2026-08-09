@@ -56,6 +56,66 @@ $$\text{Pitch Class} = \text{MIDI Note Number} \pmod{12}$$
 
 While MIDI uses 0–127 to trigger explicit notes on a hardware synthesizer, music theorists like Robert Morris use 0–11 to analyze underlying harmonic shapes, interval patterns, and symmetrical structures regardless of where or how high they are played.
 
+## 2️⃣ In Haskell
+
+In Haskell, you represent this mapping cleanly using standard type classes and the `mod` function.
+
+**Module Definition**
+
+```haskell
+module PitchClass where
+
+-- | Pitch class integer representation (0 through 11)
+type PitchClass = Int
+
+-- | Convert a MIDI pitch number (0..127) to a PitchClass (0..11)
+toPitchClass :: Int -> PitchClass
+toPitchClass midi = midi `mod` 12
+
+-- | Standard note names indexed 0 through 11
+noteNames :: [String]
+noteNames = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+-- | Convert a MIDI pitch directly to its note name string
+toNoteName :: Int -> String
+toNoteName midi = noteNames !! toPitchClass midi
+
+```
+
+---
+
+**Defining a Custom Datatype**
+
+For stronger type safety, you can model pitch classes as an explicit algebraic data type with built-in instances:
+
+```haskell
+data Pitch
+  = C  | Cs | D  | Ds | E  | F 
+  | Fs | G  | Gs | A  | As | B
+  deriving (Eq, Show, Enum, Bounded)
+
+-- | Convert MIDI integer to typed Pitch value
+midiToPitch :: Int -> Pitch
+midiToPitch midi = toEnum (midi `mod` 12)
+
+```
+
+---
+
+**Example Usage in GHCi**
+
+```haskell
+ghci> toPitchClass 60
+0
+
+ghci> toNoteName 69
+"A"
+
+ghci> midiToPitch 71
+B
+
+```
+
 # 📚 References
 
 [^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
