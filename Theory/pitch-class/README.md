@@ -217,6 +217,41 @@ Media composers scoring films, games, or contemporary classical works actively u
 | **Session Musicians & Arrangers** | Pitch Class / Note Name / Key | "C", "F#", "Bb" (regardless of octave) |
 | **Audio Processing (DSP)** | Chroma Vector / Chromagram | 12-bin pitch distribution array |
 
+## 5️⃣ Why t and e ?
+
+**`t` and `e` stand for "Ten" and "Eleven."**
+
+They are used in music set theory as single-character symbols for pitch classes 10 and 11 to solve a formatting and parsing problem.
+
+<image src=https://en.wikipedia.org/wiki/Forte_number#/media/File:Set_theory_3-1_in_the_chromatic_circle_fix.svg width=50% height=50% > </image>
+
+---
+
+### Why Single Characters Are Necessary
+
+When music theorists write out a pitch-class set, matrix, or tone row, they list elements sequentially without punctuation (e.g., `[0 1 4 7 10 11]` or `01471011`).
+
+If you use standard two-digit numbers, ambiguous collisions happen instantly:
+
+* **`0110`** could mean the set **`[0, 1, 10]`** or the set **`[0, 11, 0]`**.
+* **`01471011`** could be read as 8 single digits or 6 pitch classes.
+
+By replacing 10 with **`t`** (or **`T`**) and 11 with **`e`** (or **`E`**), every pitch class from 0 to 11 occupies **exactly one character**:
+
+| Pitch Class | Note | Symbol |
+| --- | --- | --- |
+| **10** | A♯ / B♭ | **`t`** (Ten) |
+| **11** | B | **`e`** (Eleven) |
+
+---
+
+### Alternative Conventions
+
+While `t` and `e` are the most common in American set theory (popularized by Allen Forte and John Rahn):
+
+* **Hexadecimal:** Computer scientists and MIDI system developers sometimes use **`A`** and **`B`** (0–9, A, B), borrowed directly from base-16 math.
+* **duodecim/duodecimal:** Math theorists who work in base-12 arithmetic use **`↊`** (dek) and **`↋`** (el).
+
 # 📚 References
 
 [^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
