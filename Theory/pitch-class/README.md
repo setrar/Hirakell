@@ -253,6 +253,35 @@ While `t` and `e` are the most common in American set theory (popularized by All
 * **Hexadecimal:** Computer scientists and MIDI system developers sometimes use **`A`** and **`B`** (0–9, A, B), borrowed directly from base-16 math.
 * **duodecim/duodecimal:** Math theorists who work in base-12 arithmetic use **`↊`** (dek) and **`↋`** (el).
 
+## 6️⃣ 88-Key piano
+
+On a standard 88-key piano, there are **88 total pitch heights** (individual specific pitches), but only **12 pitch classes**.
+
+---
+
+**1. Pitch Heights (88 Total)**
+Every single key on an 88-key piano represents a unique pitch height (a distinct frequency and octave register).
+
+* **Lowest key:** $A_0$ (MIDI note 21)
+* **Highest key:** $C_8$ (MIDI note 108)
+
+---
+
+**2. Pitch Classes (12 Total)**
+Pitch classes group all octave equivalents together ($C, C\sharp, D, D\sharp, E, F, F\sharp, G, G\sharp, A, A\sharp, B$). Across the 88 keys, those 12 pitch classes repeat across 7 full octaves plus 4 extra keys:
+
+| Pitch Class | Count on an 88-Key Piano | Keys Included |
+| --- | --- | --- |
+| **C** | **8** keys | $C_1, C_2, C_3, C_4, C_5, C_6, C_7, C_8$ |
+| **A** | **8** keys | $A_0, A_1, A_2, A_3, A_4, A_5, A_6, A_7$ |
+| **A♯ / B♭** | **8** keys | $A\sharp_0, A\sharp_1, A\sharp_2, A\sharp_3, A\sharp_4, A\sharp_5, A\sharp_6, A\sharp_7$ |
+| **B** | **8** keys | $B_0, B_1, B_2, B_3, B_4, B_5, B_6, B_7$ |
+| **All other 8 Pitch Classes**<br>
+
+<br>*(C♯, D, D♯, E, F, F♯, G, G♯)* | **7** keys each | Octaves 1 through 7 |
+
+*Total check:* $(4 \text{ pitch classes} \times 8) + (8 \text{ pitch classes} \times 7) = 32 + 56 = \mathbf{88\text{ keys}}$.
+
 # 📚 References
 
 [^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
