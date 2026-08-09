@@ -282,6 +282,73 @@ Pitch classes group all octave equivalents together ($C, C\sharp, D, D\sharp, E,
 
 *Total check:* $(4 \text{ pitch classes} \times 8) + (8 \text{ pitch classes} \times 7) = 32 + 56 = \mathbf{88\text{ keys}}$.
 
+## 8️⃣ Since when Pitch class were used?
+
+The concept of **pitch classes** evolved in three major phases, transitioning from an informal understanding of "octave equivalence" to the explicit mathematical system used today.
+
+---
+
+### Timeline of the Concept
+
+**1. Ancient Origins (Implicit Use)**
+The core idea behind pitch classes—**octave equivalence**—has existed for thousands of years. Ancient Greek, Indian, and Chinese music systems used letter names or solfège syllables (e.g., *Do, Re, Mi*) to treat notes an octave apart as functionally identical, regardless of register.
+
+**2. The 1950s: Milton Babbitt Coindexes the Term**
+American composer and theorist **Milton Babbitt** formally coined the exact term **"pitch class"** in the 1950s.
+
+* Babbitt needed a strict distinction to analyze serialism and twelve-tone music.
+* He separated *pitch* (a specific frequency/register like $C_4$) from *pitch class* (the abstract set of all $C$s) and introduced the integer mapping system ($0$ through $11$) to apply mathematical set theory to music.
+
+**3. The 1960s–1970s: Codification into Set Theory**
+In 1973, **Allen Forte** published *The Structure of Atonal Music*, which codified Babbitt's work into **Pitch-Class Set Theory**. This established pitch classes ($0$–$11$), interval vectors, and prime forms as standard academic music theory worldwide.
+
+**4. 1980s: Standardized in Software (MIDI)**
+In **1983**, when the MIDI specification was released, hardware engineers adopted modulo-12 pitch class arithmetic ($0$–$127 \pmod{12}$) to build digital synthesis, chord detection, and electronic instruments.
+
+---
+
+| Era | Key Pioneer | Major Shift |
+| --- | --- | --- |
+| **Ancient–1800s** | Historical Music Theory | Used letter names/solfège implicitly for octave equivalence. |
+| **1950s** | **Milton Babbitt** | Coined "pitch class" and assigned integers ($0$–$11$). |
+| **1973** | **Allen Forte** | Standardized Pitch-Class Set Theory for analyzing atonal music. |
+| **1983** | **MIDI Association** | Integrated modulo-12 pitch class logic into global audio software and hardware. |
+
+## 9️⃣ Aren't Pitch Classes confusing the jazz theory?
+
+**Yes, absolutely.** If you try to force raw pitch-class integers ($0$–$11$) onto standard jazz performance, it creates a clunky, impractical mess.
+
+Jazz theory relies heavily on **functional harmony, voice leading, and chord-scale relationships**, all of which require traditional note spelling and interval names to make practical sense.
+
+---
+
+### Why Pitch Classes Conflict with Jazz Thinking
+
+* **Loss of Functional Spelling (Enharmonic Collisions)**
+In jazz, spelling matters because it tells you where a note wants to resolve. Pitch-class theory flattens $\text{C}\sharp$ and $\text{D}\flat$ into the same number (**1**).
+* In a **$\text{C}^7(\flat 9)$** chord, the $\text{D}\flat$ (**1**) is a functional lowered 9th resolving down to C.
+* In a **$\text{C}^7(\sharp 9)$** chord, the $\text{D}\sharp$ (**3**) is an altered tension acting like an extension.
+* Calling both "pitch classes 1 and 3" hides the harmonic gravity that tells a soloist how to resolve those notes.
+
+
+* **Tensions Beyond the Octave ($9\text{ths}, 11\text{ths}, 13\text{ths}$)**
+Jazz voicing is built on **extended tertian harmony** (stacking 3rds up into the next octave).
+* Pitch-class theory uses modulo 12 arithmetic, reducing a $\sharp 11$ down to a tritone ($6$).
+* To a jazz pianist, a tritone in the bass functions as an altered root or 3rd/7th shell, whereas a $\sharp 11$ sitting high up in a voicing is a distinct color tension. Collapsing them into IC 6 obscures how the chord is actually voiced.
+
+
+* **Scale Degrees vs. Fixed Integers**
+Jazz musicians think relationally using scale degrees ($\hat{1}, \hat{3}, \flat \hat{7}, \sharp \hat{11}$) relative to a moving key center. Abstract numbers ($0, 1, 2\dots$) treat C as an absolute zero, which breaks down when navigating fast modulations (like *Giant Steps*).
+
+---
+
+### Where Jazz and Pitch-Class Theory Do Intersect
+
+While jazz musicians don't read numerical pitch-class sets on lead sheets, modern jazz theorists and composers use the underlying concepts under different names:
+
+* **Tritone Substitution:** Substituting $\text{G}^7$ with $\text{D}\flat^7$ works because both chords share the exact same pitch-class pair for their guide tones ($\text{B}$ and $\text{F}$, or pitch classes **11** and **5**).
+* **Pitch-Class Collections:** Scale systems like the **Altered Scale** or **Symmetrical Diminished Scale** are essentially pitch-class sets that post-bop composers (like Wayne Shorter or McCoy Tyner) manipulate for non-functional, modal improvising.
+
 # 📚 References
 
 [^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
