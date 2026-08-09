@@ -31,7 +31,9 @@
 The helix diagram below shows how pitch class (chroma) loops endlessly in a circle, while specific pitches (height) stack linearly upward across octaves.
 
 <image src=images/Pitch-Class-Circle-A-and-a-helix-representation-of-the-relation-between-Pitch-Height.webp width=50% height=50% > </images>
-> Pitch class circle versus pitch height. Source: ResearchGate
+> Pitch class circle versus pitch height. Source: ResearchGate [^1]
+
+[^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
 
 ---
 
