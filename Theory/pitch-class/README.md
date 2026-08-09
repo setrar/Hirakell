@@ -223,7 +223,7 @@ Media composers scoring films, games, or contemporary classical works actively u
 
 They are used in music set theory as single-character symbols for pitch classes 10 and 11 to solve a formatting and parsing problem.
 
-<image src=https://en.wikipedia.org/wiki/Forte_number#/media/File:Set_theory_3-1_in_the_chromatic_circle_fix.svg width=50% height=50% > </image>
+<image src=https://upload.wikimedia.org/wikipedia/commons/e/ee/Set_theory_3-1_in_the_chromatic_circle_fix.svg width=50% height=50% > </image>
 
 ---
 
