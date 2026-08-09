@@ -116,6 +116,107 @@ B
 
 ```
 
+## 3️⃣ Any equivalent in Euterpea?
+
+Yes, Euterpea built these exact concepts into its core Haskell module structure. Rather than making you write conversion functions from scratch, Euterpea provides built-in type synonyms and primitive conversion functions.
+
+---
+
+### Euterpea's Built-In Types
+
+In Euterpea, MIDI numbers are represented by `AbsPitch` (Absolute Pitch), which is a type synonym for `Int`.
+
+```haskell
+type AbsPitch = Int          -- MIDI pitches (0 to 127)
+type Octave   = Int          -- Octave integer (e.g., 4)
+data PitchClass = C | Cs | D | Ds | E | F | Fs | G | Gs | A | As | B
+type Pitch    = (PitchClass, Octave) -- e.g., (C, 4)
+
+```
+
+---
+
+### Core Conversion Functions
+
+Euterpea provides built-in functions to convert between specific `Pitch` structures, raw integer pitch numbers (`AbsPitch`), and relative pitch classes.
+
+* **`absPitch :: Pitch -> AbsPitch`**
+Converts a `(PitchClass, Octave)` tuple to its MIDI number.
+`absPitch (C, 4)  ==>  60`
+* **`pitch :: AbsPitch -> Pitch`**
+Converts a MIDI integer back into a `Pitch` tuple.
+`pitch 60         ==>  (C, 4)`
+* **`pc :: Pitch -> PitchClass`**
+Extracts just the `PitchClass` constructor, stripping out octave data.
+`pc (C, 4)        ==>  C`
+
+---
+
+### Working with Pitch Classes ($0$–$11$) in Euterpea
+
+If you want to work strictly with post-tonal $0$–$11$ pitch classes, you can bridge Euterpea's types using standard Haskell functions or Euterpea's conversion utilities:
+
+```haskell
+import Euterpea
+
+-- Convert a MIDI pitch integer to a PitchClass
+midiToPC :: AbsPitch -> PitchClass
+midiToPC = pc . pitch
+
+-- Convert a PitchClass to its integer index (0..11)
+pcToNum :: PitchClass -> Int
+pcToNum = fromEnum
+
+-- Convert a MIDI integer directly to a 0..11 integer
+midiToPCNum :: AbsPitch -> Int
+midiToPCNum ap = ap `mod` 12
+
+```
+
+**Usage in GHCi:**
+
+```haskell
+ghci> midiToPC 69
+A
+
+ghci> pcToNum A
+9
+
+ghci> midiToPCNum 69
+9
+
+```
+
+## 4️⃣ Are Pitch Classes a recognized concept in the music industry?
+
+**Yes, pitch classes are universally recognized and fundamental across the music industry**, though the specific vocabulary shifts depending on whether you are talking to software engineers, session musicians, or audio algorithm designers.
+
+While a session musician might call it a "note name" and a software engineer might write `midi % 12`, they are relying on the exact same theoretical concept: grouping all octave equivalents ($C_0, C_1, C_2 \dots$) into a single abstraction.
+
+---
+
+**Where Pitch Classes Are Used in the Music Industry**
+
+* **Music Software & Plugin Engineering (DAWs, VSTs, Web Audio)**
+Audio tools use pitch classes to build transposition algorithms, auto-tune processors, and chord analyzers. When a MIDI plugin detects a chord regardless of whether it's played on a bass or a soprano synth, it relies on pitch-class set operations.
+* **Audio Information Retrieval (AIR) & Music Streaming**
+Companies like Spotify, Shazam, and GraceNote extract **chroma features** (a 12-element vector representing pitch-class energy) from raw audio files. Chroma profiles allow algorithms to identify song key, analyze harmonic progressions, and match cover versions of songs regardless of instrument register or tempo.
+* **Digital Instruments & Algorithmic Composition**
+Generative music engines, arpeggiators, and MIDI controllers rely on pitch class math ($0$–$11$) to constrain notes to specific scales, calculate inversions, or auto-generate backing harmonies in real time.
+* **Film Scoring & Modern Composition**
+Media composers scoring films, games, or contemporary classical works actively use pitch-class set theory (derived from theorists like Allen Forte and Robert Morris) to construct non-tonal motifs, symmetry, and atmosphere.
+
+---
+
+**Terminology Breakdown Across Domains**
+
+| Industry Domain | What They Call It | Typical Representation |
+| --- | --- | --- |
+| **Music Theory / Academia** | Pitch Class (PC) | $0, 1, 2, \dots, 9, t, e$ |
+| **Music Tech & Programming** | Chroma / Pitch Class / Modulo-12 | `int pc = midiNote % 12;` |
+| **Session Musicians & Arrangers** | Pitch Class / Note Name / Key | "C", "F#", "Bb" (regardless of octave) |
+| **Audio Processing (DSP)** | Chroma Vector / Chromagram | 12-bin pitch distribution array |
+
 # 📚 References
 
 [^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
