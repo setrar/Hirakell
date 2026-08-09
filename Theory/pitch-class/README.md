@@ -24,7 +24,7 @@
 
 ---
 
-## Is this related to the midi pitch class system? 0-127 and 0-11?
+## :one: Is this related to the midi pitch class system? 0-127 and 0-11?
 
 **Yes, they share the exact same underlying logic.** Both system models treat the 12 semi-tones of equal temperament as integers ($0$ through $11$), but they apply this math for different purposes.
 
