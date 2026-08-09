@@ -33,7 +33,6 @@ The helix diagram below shows how pitch class (chroma) loops endlessly in a circ
 <image src=images/Pitch-Class-Circle-A-and-a-helix-representation-of-the-relation-between-Pitch-Height.webp width=50% height=50% > </images>
 > Pitch class circle versus pitch height. Source: ResearchGate [^1]
 
-[^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
 
 ---
 
@@ -56,3 +55,7 @@ $$\text{Pitch Class} = \text{MIDI Note Number} \pmod{12}$$
 * **MIDI Note 71** (B4): $71 \pmod{12} = \mathbf{11}$ (often written as **e** in set theory)
 
 While MIDI uses 0–127 to trigger explicit notes on a hardware synthesizer, music theorists like Robert Morris use 0–11 to analyze underlying harmonic shapes, interval patterns, and symmetrical structures regardless of where or how high they are played.
+
+# 📚 References
+
+[^1]: https://www.researchgate.net/publication/396855966_Octave_Equivalence_Difficult_to_Perceive_but_Improvements_are_Possible_With_Training
