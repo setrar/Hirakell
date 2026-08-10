@@ -48,3 +48,36 @@ The classic $\text{ii} - \text{V} - \text{I}$ progression (or $\text{IV} - \text
 
 * **Functional Harmony:** Used in Baroque, Classical, Romantic, Pop, and traditional Jazz. Chords drive toward a target goal (cadence).
 * **Non-Functional Harmony:** Used in Impressionism (Debussy), Modal Jazz (Kind of Blue), and Atonal/Post-Tonal music (Pitch-Class theory). Chords are chosen for their unique color, texture, or voice-leading without needing to resolve to a home key.
+
+---
+
+The book you are referring to is ***Improvising Jazz* by Jerry Coker** (published in 1964).
+
+---
+
+### Key Information & Chapters
+
+In *Improvising Jazz*, Coker addresses functional harmony as the core framework improvisers use to understand chord progressions and navigate key centers.
+
+* **Chapter 8: Functional Harmony**
+This entire chapter breaks down how chords function relative to key centers, focusing on how jazz musicians simplify complex lead sheets by recognizing functional movement rather than treating every chord as an isolated event.
+* **Core Topics Covered:**
+* **Roman Numeral Analysis:** Translating chord symbols into scale degree functions ($\text{I}, \text{ii}, \text{IV}, \text{V}^7$).
+* **The $\text{ii}-\text{V}-\text{I}$ Progression:** Identifying subdominant-to-dominant-to-tonic resolutions as the primary functional engine in jazz standards.
+* **Secondary Dominants:** Explaining chords that temporarily function as a $\text{V}^7$ moving to degrees other than the tonic (e.g., $\text{V}^7/\text{ii}$).
+* **Turnarounds:** How functional progressions cycle back to the tonic or set up repeating choruses.
+
+
+
+---
+
+### Related Books by Jerry Coker
+
+Coker expanded on these concepts in several other widely used pedagogy texts:
+
+| Book Title | Primary Focus |
+| --- | --- |
+| ***Improvising Jazz* (1964)** | The foundational text covering melody, swing, and functional harmony (Chapter 8). |
+| ***The Jazz Idiom* (1975)** | Further expands on functional harmony, chord-scale relationships, and form. |
+| ***Listening to Jazz* (1978)** | Focuses on hearing functional progressions and structural forms aurally. |
+| ***Elements of the Jazz Language* (1991)** | Analyzes specific functional patterns, arpeggio entry points, and cell motifs. |
