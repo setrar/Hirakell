@@ -97,9 +97,9 @@ C Major <
 
 ### How NRT Measures Smooth Voice Leading
 
-In traditional harmony, moving from **C major** to **A**$\flat$** minor** feels distant and unrelated because they share no key signature. In NRT, voice leading efficiency is measured by calculating the total **semitone displacement distance** across pitch classes.
+In traditional harmony, moving from **C major** to **A**$\flat$**minor** feels distant and unrelated because they share no key signature. In NRT, voice leading efficiency is measured by calculating the total **semitone displacement distance** across pitch classes.
 
-NRT shows that C major and A$\flat$ minor are actually connected by a tight, hyper-smooth chain of single-semitone steps called **compound transformations**:
+NRT shows that C major and A $\flat$ minor are actually connected by a tight, hyper-smooth chain of single-semitone steps called **compound transformations**:
 
 $$\text{C Major } \{0, 4, 7\} \xrightarrow{\quad \mathbf{L} \quad} \text{E Minor } \{4, 7, 11\} \xrightarrow{\quad \mathbf{P} \quad} \text{E Major } \{4, 8, 11\} \xrightarrow{\quad \mathbf{L} \quad} \text{A}\flat\text{ Minor } \{8, 11, 3\}$$
 
