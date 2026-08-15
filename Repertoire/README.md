@@ -1,6 +1,6 @@
 # What to play
 
-- [ ] Tenderly
+- [ ] [Tenderly](https://musescore.com/user/2729216/scores/3509076)
 - [ ] Hymn to Freedom
 - [ ] Katherine
 - [ ] Spain
