@@ -1,14 +1,13 @@
-This example demonstrates how to use Euterpea's built-in
-`delayLine` signal processor to create a simple echo effect.
-
-We begin by enabling Arrow notation.
-
 > {-# LANGUAGE Arrows #-}
-
 Import Euterpea and its audio facilities.
 
 > import Euterpea
 > import Euterpea.IO.Audio
+
+This example demonstrates how to use Euterpea's built-in
+`delayLine` signal processor to create a simple echo effect.
+
+We begin by enabling Arrow notation.
 
 The instrument generates a sine wave whose frequency is
 determined by the pitch being played.
