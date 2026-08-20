@@ -161,3 +161,50 @@ main =
 ### What You Hear
 
 When played, you hear a clean sine wave tone on Middle C for a quarter note, followed 0.5 seconds later by a single, quieter echo of the same tone.
+
+### Expanding `instr`
+
+In Euterpea, you do not call `instr` manually inside `main`. Instead, you pass `instr` as a function value within the **user-instrument map** (`[(InstrumentName, Instr a)]`), and `writeWav` handles passing the parameters automatically during rendering.
+
+Here is how the parameters flow into `instr`:
+
+### The Type Signature
+
+```haskell
+instr :: Instr (Stereo AudRate)
+
+```
+
+In Euterpea, `Instr a` is a type synonym for a function with four parameters:
+
+```haskell
+type Instr a = Dur -> AbsPitch -> Volume -> [Double] -> SignalFunction () a
+
+```
+
+When rewritten with its arguments, `instr` expands to:
+
+```haskell
+instr _dur ap _vol _params = proc _ -> ...
+
+```
+
+---
+
+### Where Each Parameter Comes From
+
+When `writeWav` evaluates the musical score `note qn (C, 4 :: Octave)`:
+
+1. **`_dur` (`Dur`)**: Extracted from the note's duration, `qn` (quarter note). `writeWav` converts this musical duration into seconds based on the default tempo (120 BPM by default).
+2. **`ap` (`AbsPitch`)**: Extracted from the note value, `(C, 4)`. Euterpea translates this pitch into an integer representation (Middle C / $C_4$ maps to `60`).
+3. **`_vol` (`Volume`)**: Extracted from the note's velocity/volume attributes. If unspecified in the score, it defaults to a standard MIDI volume (typically `100`).
+4. **`_params` (`[Double]`)**: Extracted from any extra custom parameters attached to the note event in the Euterpea `Music` structure. If none are provided, it receives an empty list `[]`.
+
+---
+
+### Parameter Usage in `instr`
+
+In your specific implementation, three of the parameters are prefixed with underscores (`_dur`, `_vol`, `_params`), which tells the Haskell compiler that they are intentionally ignored:
+
+* **Used**: `ap` is passed to `apToHz ap` to calculate the sine wave frequency in Hz ($261.63\text{ Hz}$ for $C_4$).
+* **Ignored**: `_dur`, `_vol`, and `_params` are discarded because `oscFixed` produces a constant-amplitude sine wave, and signal termination is handled globally by `writeWav` once the note's duration expires.
