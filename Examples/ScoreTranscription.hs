@@ -2,6 +2,7 @@ module ScoreTranscription where
 
 import Euterpea
 
+-- https://www.youtube.com/shorts/kvUmbRsbbfg
 -- Right Hand (Treble Clef)
 trebleVoice :: Music Pitch
 trebleVoice = 
